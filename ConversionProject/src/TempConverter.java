@@ -4,6 +4,8 @@ import java.text.DecimalFormat;
 import java.awt.*;
 
 public class TempConverter {
+	
+	//take 2 inputs, evaluate the first then run into switch based on second
 
 	public String convertCtoF (double textCelsius) {
 		//Convert C to F
