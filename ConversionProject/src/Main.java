@@ -56,7 +56,9 @@ public class Main {
 			{
 				public void actionPerformed(ActionEvent e)
 				{
-					tc.convertFtoC(textCelsius, textFahrenheit);
+					textCelsius.setText(tc.convertFtoC(Float.parseFloat((textFahrenheit.getText()))));
+//					tc.convertFtoC(textCelsius, textFahrenheit);
+					
 //					//Convert F to C
 //					String fText = textFahrenheit.getText();
 //					double f = Double.parseDouble(fText);

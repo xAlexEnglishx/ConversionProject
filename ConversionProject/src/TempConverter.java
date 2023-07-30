@@ -11,18 +11,19 @@ public class TempConverter {
 //		double textCelsius = Double.parseDouble(textCelsius);
 		System.out.println("test2");
 		double f = (textCelsius * 9 / 5) + 32;
-		DecimalFormat df = new DecimalFormat("#.##");
-		System.out.println("test3");
+		DecimalFormat df = new DecimalFormat("#.#");
 		return String.valueOf(df.format(f));
 //		textFahrenheit.setText(String.valueOf(f));
 	}
 	
-	void convertFtoC (JTextField textCelsius, JTextField textFahrenheit) {
+	public String convertFtoC (double textFahrenheit) {
 		//Convert F to C
-		String fText = textFahrenheit.getText();
-		double f = Double.parseDouble(fText);
-		double c = (f - 32) * 5 / 9;
-		textCelsius.setText(String.valueOf(c));
+//		String fText = textFahrenheit.getText();
+//		double f = Double.parseDouble(fText);
+		double c = (textFahrenheit - 32) * 5 / 9;
+		DecimalFormat df = new DecimalFormat("#.#");
+		return String.valueOf(df.format(c));
+//		textCelsius.setText(String.valueOf(c));
 	}
 	
 }

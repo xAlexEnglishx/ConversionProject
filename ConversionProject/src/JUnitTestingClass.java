@@ -17,10 +17,18 @@ public class JUnitTestingClass {
 	
 	@Test
 	public void testCtoF() {
-		final JTextField textCelsius;
+//		final JTextField textCelsius;
 //		public static final JTextField textFahrenheit;
 		TempConverter tc = new TempConverter();
 		assertEquals("39.2", tc.convertCtoF(4));
+	}
+	
+	@Test
+	public void testFtoC() {
+//		final JTextField textCelsius;
+//		public static final JTextField textFahrenheit;
+		TempConverter tc = new TempConverter();
+		assertEquals("-15.6", tc.convertFtoC(4));
 	}
 
 }
