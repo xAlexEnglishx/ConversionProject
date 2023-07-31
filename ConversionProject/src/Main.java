@@ -1,5 +1,6 @@
 import javax.swing.*;
 import java.awt.event.*;
+import java.text.DecimalFormat;
 import java.awt.*;
 
 public class Main {
@@ -13,12 +14,13 @@ public class Main {
 	public static JButton btnCalculateCtoF;
 	public static JButton btnCalculateFtoC;
 	
+	//Temperature variables
 	public static JLabel InputTempNumLabel;
 	public static JTextField InputTempNumText;
 	public static JLabel InputTempUnitLabel;
-	public static JComboBox InputTempUnitDropdown;
+	public static JComboBox<TemperatureEnum> InputTempUnitDropdown;
 	public static JLabel TargetTempUnitLabel;
-	public static JComboBox TargetTempUnitDropdown;
+	public static JComboBox<TemperatureEnum> TargetTempUnitDropdown;
 	public static JLabel StudentTempResponseLabel;
 	public static JTextField StudentTempResponseText;
 	public static JLabel TempOutput;
@@ -93,12 +95,18 @@ public class Main {
 		InputTempNumLabel = new JLabel("Input Numerical Value:");
 		InputTempNumText = new JTextField(10);
 		InputTempUnitLabel = new JLabel("Input Unit of Measure:");
-		String[] temperatureStrings = { "Fahrenheit", "Celsius", "Kelvin", "Rankine"};
-		InputTempUnitDropdown = new JComboBox(temperatureStrings);
+//		String[] temperatureStrings = { "Fahrenheit", "Celsius", "Kelvin", "Rankine"};
+		TemperatureEnum[] temperatureUnits = { 
+				TemperatureEnum.FAHRENHEIT, 
+				TemperatureEnum.CELSIUS,
+				TemperatureEnum.KELVIN,
+				TemperatureEnum.RANKINE
+		};
+		InputTempUnitDropdown = new JComboBox<>(temperatureUnits);
 		InputTempUnitDropdown.setSelectedIndex(0);
 		
 		TargetTempUnitLabel = new JLabel("Target Unit of Measure:");
-		TargetTempUnitDropdown = new JComboBox(temperatureStrings);
+		TargetTempUnitDropdown = new JComboBox<>(temperatureUnits);
 		TargetTempUnitDropdown.setSelectedIndex(0);
 		
 		StudentTempResponseLabel = new JLabel("Student Response:");
@@ -113,13 +121,25 @@ public class Main {
 			{
 				public void actionPerformed(ActionEvent e)
 				{
-					System.out.println("test1234");
-//					textFahrenheit.setText(tc.convertCtoF(Float.parseFloat((textCelsius.getText()))));
-//							//Convert C to F
-//							String cText = textCelsius.getText();
-//							double c = Double.parseDouble(cText);
-//							double f = (c * 9 / 5) + 32;
-//							textFahrenheit.setText(String.valueOf(f));
+//					DecimalFormat df = new DecimalFormat("#.#");
+					//specify up to tenths place, anything else reveals invalid before calculation
+					//validate inputs
+					
+					
+					boolean testBool = TempConverter.evaluateTempConversion(
+							InputTempNumText.getText(), 
+							StudentTempResponseText.getText(), 
+//							String.valueOf(df.format(InputTempNumText.getText())), 
+//							String.valueOf(df.format(StudentTempResponseText.getText())), 
+							(TemperatureEnum)InputTempUnitDropdown.getSelectedItem(), 
+							(TemperatureEnum)TargetTempUnitDropdown.getSelectedItem());
+					System.out.println("test1234" + testBool);
+					
+					if (testBool == true) {
+						TempOutput.setText("Output: correct");
+					} else {
+						TempOutput.setText("Output: incorrect");
+					}
 				}
 			}
 		);

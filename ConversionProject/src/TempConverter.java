@@ -6,6 +6,102 @@ import java.awt.*;
 public class TempConverter {
 	
 	//take 2 inputs, evaluate the first then run into switch based on second
+	
+	
+	public static boolean evaluateTempConversion(String InputTempNumText, String StudentTempResponseText, 
+										TemperatureEnum InputTempUnitDropdown, TemperatureEnum TargetTempUnitDropdown) {
+		System.out.println("test789" + " , " 
+				+ InputTempNumText + " , " 
+				+ StudentTempResponseText + " , " 
+				+ InputTempUnitDropdown + " , " 
+				+ TargetTempUnitDropdown);
+		
+		boolean evaluation = false;
+		
+		//Determine Input Temperature Unit
+		switch (InputTempUnitDropdown) {
+	        case FAHRENHEIT : evaluation = convertFromFahrenheit(InputTempNumText, StudentTempResponseText, 
+											TargetTempUnitDropdown);
+	                 break;
+	        case CELSIUS : evaluation = convertFromCelsius(InputTempNumText, StudentTempResponseText, 
+											TargetTempUnitDropdown);
+	                 break;
+	        case KELVIN : evaluation = convertFromKelvin(InputTempNumText, StudentTempResponseText, 
+											TargetTempUnitDropdown);
+	                 break;
+	        case RANKINE : evaluation = convertFromRankine(InputTempNumText, StudentTempResponseText, 
+											TargetTempUnitDropdown);
+	                 break;
+	        default: return false;
+		}
+		
+		return evaluation;
+		
+//		if (InputTempUnitDropdown == TemperatureEnum.CELSIUS && TargetTempUnitDropdown == TemperatureEnum.KELVIN) {
+//			return true;
+//		} else {
+//			return false;
+//		}
+	}
+	
+	private static boolean convertFromFahrenheit (String InputTempNumText, String StudentTempResponseText, 
+													TemperatureEnum TargetTempUnitDropdown) {
+		boolean evaluation = false;
+		
+		//Determine Target Temperature Unit
+		switch (TargetTempUnitDropdown) {
+//	        case FAHRENHEIT : convertFromFahrenheit(InputTempNumText, StudentTempResponseText, 
+//											TargetTempUnitDropdown);
+//	                 break;
+	        case CELSIUS : evaluation = convertFahrenheitToCelsius(InputTempNumText, StudentTempResponseText);
+	                 break;
+//	        case KELVIN : convertFromKelvin(InputTempNumText, StudentTempResponseText, 
+//											TargetTempUnitDropdown);
+//	                 break;
+//	        case RANKINE : convertFromRankine(InputTempNumText, StudentTempResponseText, 
+//											TargetTempUnitDropdown);
+//	                 break;
+	        default: return false;
+		}
+		return evaluation;
+	}
+	
+	private static boolean convertFromCelsius (String InputTempNumText, String StudentTempResponseText, 
+												TemperatureEnum TargetTempUnitDropdown) {
+		return false;
+	}
+	
+	private static boolean convertFromKelvin (String InputTempNumText, String StudentTempResponseText, 
+												TemperatureEnum TargetTempUnitDropdown) {
+		return false;
+	}
+	
+	private static boolean convertFromRankine (String InputTempNumText, String StudentTempResponseText, 
+												TemperatureEnum TargetTempUnitDropdown) {
+		return false;
+	}
+	
+	private static boolean convertFahrenheitToCelsius (String InputTempNumText, String StudentTempResponseText) {
+		//Convert F to C
+		DecimalFormat df = new DecimalFormat("#.0");
+		double studentTempResponse = Double.parseDouble(StudentTempResponseText);
+		double fahrenheit = Double.parseDouble(InputTempNumText);
+		double celsius = (fahrenheit - 32) * 5 / 9;
+		
+		System.out.println("f: " + fahrenheit + " , celsius: "+ celsius + " , calcedC" +
+				String.valueOf(df.format(celsius)) + " , student: " + String.valueOf(df.format(studentTempResponse)));
+		
+		if (String.valueOf(df.format(celsius)).equals(String.valueOf(df.format(studentTempResponse)))) {
+			System.out.println("MADE IT");
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
+	
+	
+	
 
 	public String convertCtoF (double textCelsius) {
 		//Convert C to F
