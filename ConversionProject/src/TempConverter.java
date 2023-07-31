@@ -1,6 +1,7 @@
 import javax.swing.*;
 import java.awt.event.*;
 import java.text.DecimalFormat;
+import java.util.regex.Pattern;
 import java.awt.*;
 
 public class TempConverter {
@@ -99,6 +100,15 @@ public class TempConverter {
 		}
 	}
 	
+	public static boolean verifyInputs(String InputTempNumText, String StudentTempResponseText) {
+		boolean VertifyInputTempNumText = Pattern.matches("^-?\\d+(\\.\\d{1,1})?$", InputTempNumText);
+		boolean VerifyStudentTempResponseText = Pattern.matches("^-?\\d+(\\.\\d{1,1})?$", StudentTempResponseText);
+		if (VertifyInputTempNumText == true && VerifyStudentTempResponseText == true) {
+			return true;
+		} else {
+			return false;
+		}
+	}
 	
 	
 	

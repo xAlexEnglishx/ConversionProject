@@ -15,6 +15,7 @@ public class Main {
 	public static JButton btnCalculateFtoC;
 	
 	//Temperature variables
+	public static JLabel direction;
 	public static JLabel InputTempNumLabel;
 	public static JTextField InputTempNumText;
 	public static JLabel InputTempUnitLabel;
@@ -92,6 +93,7 @@ public class Main {
 		
 		
 		//Create temperature GUI Elements
+		direction = new JLabel("Inputs must be numbers only up to the tenth decimal place.");
 		InputTempNumLabel = new JLabel("Input Numerical Value:");
 		InputTempNumText = new JTextField(10);
 		InputTempUnitLabel = new JLabel("Input Unit of Measure:");
@@ -121,24 +123,24 @@ public class Main {
 			{
 				public void actionPerformed(ActionEvent e)
 				{
-//					DecimalFormat df = new DecimalFormat("#.#");
-					//specify up to tenths place, anything else reveals invalid before calculation
+					//Verfiy up to tenths place, anything else reveals invalid before calculation
 					//validate inputs
-					
-					
-					boolean testBool = TempConverter.evaluateTempConversion(
-							InputTempNumText.getText(), 
-							StudentTempResponseText.getText(), 
-//							String.valueOf(df.format(InputTempNumText.getText())), 
-//							String.valueOf(df.format(StudentTempResponseText.getText())), 
-							(TemperatureEnum)InputTempUnitDropdown.getSelectedItem(), 
-							(TemperatureEnum)TargetTempUnitDropdown.getSelectedItem());
-					System.out.println("test1234" + testBool);
-					
-					if (testBool == true) {
-						TempOutput.setText("Output: correct");
+					if (TempConverter.verifyInputs(InputTempNumText.getText(), StudentTempResponseText.getText())) {
+						//Evaluate conversion
+						boolean conversionEvaluation = TempConverter.evaluateTempConversion(
+								InputTempNumText.getText(), 
+								StudentTempResponseText.getText(),
+								(TemperatureEnum)InputTempUnitDropdown.getSelectedItem(), 
+								(TemperatureEnum)TargetTempUnitDropdown.getSelectedItem());
+						System.out.println("test1234" + conversionEvaluation);
+						
+						if (conversionEvaluation == true) {
+							TempOutput.setText("Output: correct");
+						} else {
+							TempOutput.setText("Output: incorrect");
+						}
 					} else {
-						TempOutput.setText("Output: incorrect");
+						TempOutput.setText("Output: invalid");
 					}
 				}
 			}
@@ -146,6 +148,7 @@ public class Main {
 		
 		
 		//Add the HUI Elements to the frame
+		frmMain.add(direction);
 		frmMain.add(InputTempNumLabel);
 		frmMain.add(InputTempNumText);
 		frmMain.add(InputTempUnitLabel);
