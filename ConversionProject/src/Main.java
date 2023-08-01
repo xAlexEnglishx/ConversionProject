@@ -27,6 +27,18 @@ public class Main {
 	public static JLabel TempOutput;
 	public static JButton btnCalculateTempConversion;
 	
+	//Volume variables
+	public static JLabel InputVolNumLabel;
+	public static JTextField InputVolNumText;
+	public static JLabel InputVolUnitLabel;
+	public static JComboBox<VolumeEnum> InputVolUnitDropdown;
+	public static JLabel TargetVolUnitLabel;
+	public static JComboBox<VolumeEnum> TargetVolUnitDropdown;
+	public static JLabel StudentVolResponseLabel;
+	public static JTextField StudentVolResponseText;
+	public static JLabel VolOutput;
+	public static JButton btnCalculateVolConversion;
+	
 	
 	
 	public static void main(String[] args) {
@@ -148,7 +160,72 @@ public class Main {
 		);
 		
 		
-		//Add the HUI Elements to the frame
+		
+		
+		
+		//Create volume GUI Elements
+//		direction = new JLabel("Inputs must be numbers only up to the tenth decimal place.");
+		InputVolNumLabel = new JLabel("Input Numerical Value:");
+		InputVolNumText = new JTextField(10);
+		InputVolUnitLabel = new JLabel("Input Unit of Measure:");
+//				String[] temperatureStrings = { "Fahrenheit", "Celsius", "Kelvin", "Rankine"};
+		VolumeEnum[] volumeUnits = { 
+				VolumeEnum.LITERS,
+				VolumeEnum.TABLESPOONS,
+				VolumeEnum.CUBIC_INCHES,
+				VolumeEnum.CUPS,
+				VolumeEnum.CUBIC_FEET,
+				VolumeEnum.GALLONS
+		};
+		InputVolUnitDropdown = new JComboBox<>(volumeUnits);
+		InputVolUnitDropdown.setSelectedIndex(0);
+		
+		TargetVolUnitLabel = new JLabel("Target Unit of Measure:");
+		TargetVolUnitDropdown = new JComboBox<>(volumeUnits);
+		TargetVolUnitDropdown.setSelectedIndex(0);
+		
+		StudentVolResponseLabel = new JLabel("Student Response:");
+		StudentVolResponseText = new JTextField(10);
+		VolOutput = new JLabel("Output:");
+		btnCalculateVolConversion = new JButton("Evaluate Volume Conversion");
+		
+		//Add ActionListener
+		btnCalculateVolConversion.addActionListener
+		(
+			new ActionListener()
+			{
+				public void actionPerformed(ActionEvent e)
+				{
+					//Verfiy up to tenths place, anything else reveals invalid before calculation
+					//validate inputs
+					System.out.println("Volume");
+//					if (TempConverter.verifyInputs(InputTempNumText.getText(), StudentTempResponseText.getText())) {
+//						//Evaluate conversion
+//						boolean conversionEvaluation = TempConverter.evaluateTempConversion(
+//								InputTempNumText.getText(), 
+//								StudentTempResponseText.getText(),
+//								(TemperatureEnum)InputTempUnitDropdown.getSelectedItem(), 
+//								(TemperatureEnum)TargetTempUnitDropdown.getSelectedItem());
+//						System.out.println("test1234" + conversionEvaluation);
+//						
+//						if (conversionEvaluation == true) {
+//							TempOutput.setText("Output: correct");
+//						} else {
+//							TempOutput.setText("Output: incorrect");
+//						}
+//					} else {
+//						System.out.println("Invalid entry");
+//						TempOutput.setText("Output: invalid");
+//					}
+				}
+			}
+		);
+		
+		
+		
+		
+		
+		//Add the Temperature GUI Elements to the frame
 		frmMain.add(direction);
 		frmMain.add(InputTempNumLabel);
 		frmMain.add(InputTempNumText);
@@ -160,6 +237,18 @@ public class Main {
 		frmMain.add(StudentTempResponseText);
 		frmMain.add(TempOutput);
 		frmMain.add(btnCalculateTempConversion);
+		
+		//Add the volume GUI Elements to the frame
+		frmMain.add(InputVolNumLabel);
+		frmMain.add(InputVolNumText);
+		frmMain.add(InputVolUnitLabel);
+		frmMain.add(InputVolUnitDropdown);
+		frmMain.add(TargetVolUnitLabel);
+		frmMain.add(TargetVolUnitDropdown);
+		frmMain.add(StudentVolResponseLabel);
+		frmMain.add(StudentVolResponseText);
+		frmMain.add(VolOutput);
+		frmMain.add(btnCalculateVolConversion);
 		
 		//Make the frame visible
 		frmMain.setVisible(true);
