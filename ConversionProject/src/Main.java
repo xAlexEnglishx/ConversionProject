@@ -140,6 +140,7 @@ public class Main {
 							TempOutput.setText("Output: incorrect");
 						}
 					} else {
+						System.out.println("Invalid entry");
 						TempOutput.setText("Output: invalid");
 					}
 				}
