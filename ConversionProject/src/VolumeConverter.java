@@ -5,6 +5,7 @@ import java.text.DecimalFormat;
 import java.util.regex.Pattern;
 import java.awt.*;
 import Volumes.Liters;
+import Volumes.Tablespoons;
 
 public class VolumeConverter {
 	
@@ -76,26 +77,30 @@ public class VolumeConverter {
 		return evaluation;
 	}
 	
-	private static boolean convertFromCubicInches (String InputTempNumText, String StudentTempResponseText, 
+	private static boolean convertFromTablespoons (String InputTempNumText, String StudentTempResponseText, 
 													VolumeEnum TargetTempUnitDropdown) {
 		boolean evaluation = false;
 		
 		//Determine Target Volume Unit
-		//switch (TargetTempUnitDropdown) {
-		//case FAHRENHEIT : evaluation = convertFahrenheitToFahrenheit(InputTempNumText, StudentTempResponseText);
-		//break;
-		//case CELSIUS : evaluation = convertFahrenheitToCelsius(InputTempNumText, StudentTempResponseText);
-		//break;
-		//case KELVIN : evaluation = convertFahrenheitToKelvin(InputTempNumText, StudentTempResponseText);
-		//break;
-		//case RANKINE : evaluation = convertFahrenheitToRankine(InputTempNumText, StudentTempResponseText);
-		//break;
-		//default: return false;
-		//}
+		switch (TargetTempUnitDropdown) {
+	        case LITERS : evaluation = Tablespoons.convertTablespoonsToLiters(InputTempNumText, StudentTempResponseText);
+	                break;
+	        case TABLESPOONS : evaluation = Tablespoons.convertTablespoonsToTablespoons(InputTempNumText, StudentTempResponseText);
+					break;
+			case CUBIC_INCHES : evaluation = Tablespoons.convertTablespoonsToCubicInches(InputTempNumText, StudentTempResponseText);
+					break;
+			case CUPS : evaluation = Tablespoons.convertTablespoonsToCups(InputTempNumText, StudentTempResponseText);
+					break;
+			case CUBIC_FEET : evaluation = Tablespoons.convertTablespoonsToCubicFeet(InputTempNumText, StudentTempResponseText);
+					break;
+			case GALLONS : evaluation = Tablespoons.convertTablespoonsToGallons(InputTempNumText, StudentTempResponseText);
+					break;
+		default: return false;
+	}
 		return evaluation;
 	}
 	
-	private static boolean convertFromTablespoons (String InputTempNumText, String StudentTempResponseText, 
+	private static boolean convertFromCubicInches (String InputTempNumText, String StudentTempResponseText, 
 													VolumeEnum TargetTempUnitDropdown) {
 		boolean evaluation = false;
 		

@@ -12,6 +12,7 @@ import Temperatures.Fahrenheit;
 import Temperatures.Kelvin;
 import Temperatures.Rankine;
 import Volumes.Liters;
+import Volumes.Tablespoons;
 
 public class JUnitTestingClass {
 //	@Test
@@ -264,5 +265,70 @@ public class JUnitTestingClass {
 	@Test
 	public void testFailureConvertLitersToGallons() {
 		assertEquals(false, Liters.convertLitersToGallons("1", "0.3"));
+	}
+	
+	//Tablespoons
+	@Test
+	public void testSuccessConvertTablespoonsToTablespoons() {
+		assertEquals(true, Tablespoons.convertTablespoonsToTablespoons("1", "1"));
+	}
+	
+	@Test
+	public void testFailureConvertTablespoonsToTablespoons() {
+		assertEquals(false, Tablespoons.convertTablespoonsToTablespoons("1", "0.6"));
+	}
+	
+	@Test
+	public void testSuccessConvertTablespoonsToLiters() {
+		assertEquals(true, Tablespoons.convertTablespoonsToLiters("1", "0"));
+		assertEquals(true, Tablespoons.convertTablespoonsToLiters("10", "0.1"));
+	}
+	
+	@Test
+	public void testFailureConvertTablespoonsToLiters() {
+		assertEquals(false, Tablespoons.convertTablespoonsToLiters("1", "0.1"));
+	}
+	
+	@Test
+	public void testSuccessConvertTablespoonsToCubicInches() {
+		assertEquals(true, Tablespoons.convertTablespoonsToCubicInches("1", "0.9"));
+	}
+	
+	@Test
+	public void testFailureConvertTablespoonsToCubicInches() {
+		assertEquals(false, Tablespoons.convertTablespoonsToCubicInches("1", "0.1"));
+	}
+	
+	@Test
+	public void testSuccessConvertTablespoonsToCups() {
+		assertEquals(true, Tablespoons.convertTablespoonsToCups("1", "0"));
+		assertEquals(true, Tablespoons.convertTablespoonsToCups("2", "0.1"));
+	}
+	
+	@Test
+	public void testFailureConvertTablespoonsToCups() {
+		assertEquals(false, Tablespoons.convertTablespoonsToCups("1", "0.1"));
+	}
+	
+	@Test
+	public void testSuccessConvertTablespoonsToCubicFeet() {
+		assertEquals(true, Tablespoons.convertTablespoonsToCubicFeet("1", "0"));
+		assertEquals(true, Tablespoons.convertTablespoonsToCubicFeet("1000", "0.5"));
+	}
+	
+	@Test
+	public void testFailureConvertTablespoonsToCubicFeet() {
+		assertEquals(false, Tablespoons.convertTablespoonsToCubicFeet("1", "0.1"));
+	}
+	
+	@Test
+	public void testSuccessConvertTablespoonsToGallons() {
+		assertEquals(true, Tablespoons.convertTablespoonsToGallons("1", "0"));
+		assertEquals(true, Tablespoons.convertTablespoonsToGallons("100", "0.3"));
+	}
+	
+	@Test
+	public void testFailureConvertTablespoonsToGallons() {
+		assertEquals(false, Tablespoons.convertTablespoonsToGallons("1", "0.1"));
 	}
 }
