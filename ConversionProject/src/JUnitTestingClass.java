@@ -7,6 +7,11 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import Temperatures.Celsius;
+import Temperatures.Fahrenheit;
+import Temperatures.Kelvin;
+import Temperatures.Rankine;
+
 public class JUnitTestingClass {
 //	@Test
 //	public void test_JUnit() {
@@ -34,165 +39,165 @@ public class JUnitTestingClass {
 	//Test fahrenheit
 	@Test
 	public void testSuccessConvertFahrenheitToFahrenheit() {
-		assertEquals(true, TempConverter.convertFahrenheitToFahrenheit("4.5", "4.5"));
+		assertEquals(true, Fahrenheit.convertFahrenheitToFahrenheit("4.5", "4.5"));
 	}
 	
 	@Test
 	public void testFailureConvertFahrenheitToFahrenheit() {
-		assertEquals(false, TempConverter.convertFahrenheitToFahrenheit("4.5", "4"));
+		assertEquals(false, Fahrenheit.convertFahrenheitToFahrenheit("4.5", "4"));
 	}
 	
 	@Test
 	public void testSuccessConvertFahrenheitToCelsius() {
-		assertEquals(true, TempConverter.convertFahrenheitToCelsius("32", "0"));
+		assertEquals(true, Fahrenheit.convertFahrenheitToCelsius("32", "0"));
 	}
 	
 	@Test
 	public void testFailureConvertFahrenheitToCelsius() {
-		assertEquals(false, TempConverter.convertFahrenheitToCelsius("32", "1"));
+		assertEquals(false, Fahrenheit.convertFahrenheitToCelsius("32", "1"));
 	}
 	
 	@Test
 	public void testSuccessConvertFahrenheitToKelvin() {
-		assertEquals(true, TempConverter.convertFahrenheitToKelvin("32", "273.1"));
+		assertEquals(true, Fahrenheit.convertFahrenheitToKelvin("32", "273.1"));
 	}
 	
 	@Test
 	public void testFailureConvertFahrenheitToKelvin() {
-		assertEquals(false, TempConverter.convertFahrenheitToKelvin("32", "273.2"));
+		assertEquals(false, Fahrenheit.convertFahrenheitToKelvin("32", "273.2"));
 	}
 	
 	@Test
 	public void testSuccessConvertFahrenheitToRankine() {
-		assertEquals(true, TempConverter.convertFahrenheitToRankine("32", "491.6"));
+		assertEquals(true, Fahrenheit.convertFahrenheitToRankine("32", "491.6"));
 	}
 	
 	@Test
 	public void testFailureConvertFahrenheitToRankine() {
-		assertEquals(false, TempConverter.convertFahrenheitToRankine("32", "491.7"));
+		assertEquals(false, Fahrenheit.convertFahrenheitToRankine("32", "491.7"));
 	}
 	
 	//Test celsius
 	@Test
 	public void testSuccessConvertCelsiusToCelsius() {
-		assertEquals(true, TempConverter.convertCelsiusToCelsius("4.5", "4.5"));
+		assertEquals(true, Celsius.convertCelsiusToCelsius("4.5", "4.5"));
 	}
 	
 	@Test
 	public void testFailureConvertCelsiusToCelsius() {
-		assertEquals(false, TempConverter.convertCelsiusToCelsius("4.5", "4"));
+		assertEquals(false, Celsius.convertCelsiusToCelsius("4.5", "4"));
 	}
 	
 	@Test
 	public void testSuccessConvertCelsiusToFahrenheit() {
-		assertEquals(true, TempConverter.convertCelsiusToFahrenheit("0", "32"));
+		assertEquals(true, Celsius.convertCelsiusToFahrenheit("0", "32"));
 	}
 	
 	@Test
 	public void testFailureConvertCelsiusToFahrenheit() {
-		assertEquals(false, TempConverter.convertCelsiusToFahrenheit("0", "31"));
+		assertEquals(false, Celsius.convertCelsiusToFahrenheit("0", "31"));
 	}
 	
 	@Test
 	public void testSuccessConvertCelsiusToKelvin() {
-		assertEquals(true, TempConverter.convertCelsiusToKelvin("0", "273.1"));
+		assertEquals(true, Celsius.convertCelsiusToKelvin("0", "273.1"));
 	}
 	
 	@Test
 	public void testFailureConvertCelsiusToKelvin() {
-		assertEquals(false, TempConverter.convertCelsiusToKelvin("0", "273.2"));
+		assertEquals(false, Celsius.convertCelsiusToKelvin("0", "273.2"));
 	}
 	
 	@Test
 	public void testSuccessConvertCelsiusToRankine() {
-		assertEquals(true, TempConverter.convertCelsiusToRankine("0", "491.6"));
+		assertEquals(true, Celsius.convertCelsiusToRankine("0", "491.6"));
 	}
 	
 	@Test
 	public void testFailureConvertCelsiusToRankine() {
-		assertEquals(false, TempConverter.convertCelsiusToRankine("0", "491.5"));
+		assertEquals(false, Celsius.convertCelsiusToRankine("0", "491.5"));
 	}
 	
 	//Test Kelvin
 	@Test
 	public void testSuccessConvertKelvinToKelvin() {
-		assertEquals(true, TempConverter.convertKelvinToKelvin("4.5", "4.5"));
+		assertEquals(true, Kelvin.convertKelvinToKelvin("4.5", "4.5"));
 	}
 	
 	@Test
 	public void testFailureConvertKelvinToKelvin() {
-		assertEquals(false, TempConverter.convertKelvinToKelvin("4.5", "4"));
+		assertEquals(false, Kelvin.convertKelvinToKelvin("4.5", "4"));
 	}
 	
 	@Test
 	public void testSuccessConvertKelvinToFahrenheit() {
-		assertEquals(true, TempConverter.convertKelvinToFahrenheit("0", "-459.6"));
+		assertEquals(true, Kelvin.convertKelvinToFahrenheit("0", "-459.6"));
 	}
 	
 	@Test
 	public void testFailureConvertKelvinToFahrenheit() {
-		assertEquals(false, TempConverter.convertKelvinToFahrenheit("0", "-459.5"));
+		assertEquals(false, Kelvin.convertKelvinToFahrenheit("0", "-459.5"));
 	}
 	
 	@Test
 	public void testSuccessConvertKelvinToCelsius() {
-		assertEquals(true, TempConverter.convertKelvinToCelsius("0", "-273.1"));
+		assertEquals(true, Kelvin.convertKelvinToCelsius("0", "-273.1"));
 	}
 	
 	@Test
 	public void testFailureConvertKelvinToCelsius() {
-		assertEquals(false, TempConverter.convertKelvinToCelsius("0", "-273.2"));
+		assertEquals(false, Kelvin.convertKelvinToCelsius("0", "-273.2"));
 	}
 	
 	@Test
 	public void testSuccessConvertKelvinToRankine() {
-		assertEquals(true, TempConverter.convertKelvinToRankine("1", "1.8"));
+		assertEquals(true, Kelvin.convertKelvinToRankine("1", "1.8"));
 	}
 	
 	@Test
 	public void testFailureConvertKelvinToRankine() {
-		assertEquals(false, TempConverter.convertKelvinToRankine("1", "1.9"));
+		assertEquals(false, Kelvin.convertKelvinToRankine("1", "1.9"));
 	}
 	
 	//Test Rankine
 	@Test
 	public void testSuccessConvertRankineToRankine() {
-		assertEquals(true, TempConverter.convertRankineToRankine("4.5", "4.5"));
+		assertEquals(true, Rankine.convertRankineToRankine("4.5", "4.5"));
 	}
 	
 	@Test
 	public void testFailureConvertRankineToRankine() {
-		assertEquals(false, TempConverter.convertRankineToRankine("4.5", "4"));
+		assertEquals(false, Rankine.convertRankineToRankine("4.5", "4"));
 	}
 	
 	@Test
 	public void testSuccessConvertRankineToFahrenheit() {
-		assertEquals(true, TempConverter.convertRankineToFahrenheit("0", "-459.6"));
+		assertEquals(true, Rankine.convertRankineToFahrenheit("0", "-459.6"));
 	}
 	
 	@Test
 	public void testFailureConvertRankineToFahrenheit() {
-		assertEquals(false, TempConverter.convertRankineToFahrenheit("0", "-459.7"));
+		assertEquals(false, Rankine.convertRankineToFahrenheit("0", "-459.7"));
 	}
 	
 	@Test
 	public void testSuccessConvertRankineToCelsius() {
-		assertEquals(true, TempConverter.convertRankineToCelsius("0", "-273.1"));
+		assertEquals(true, Rankine.convertRankineToCelsius("0", "-273.1"));
 	}
 	
 	@Test
 	public void testFailureConvertRankineToCelsius() {
-		assertEquals(false, TempConverter.convertRankineToCelsius("0", "-273.2"));
+		assertEquals(false, Rankine.convertRankineToCelsius("0", "-273.2"));
 	}
 	
 	@Test
 	public void testSuccessConvertRankineToKelvin() {
-		assertEquals(true, TempConverter.convertRankineToKelvin("1", "0.5"));
+		assertEquals(true, Rankine.convertRankineToKelvin("1", "0.5"));
 	}
 	
 	@Test
 	public void testFailureConvertRankineToKelvin() {
-		assertEquals(false, TempConverter.convertRankineToKelvin("1", "0.6"));
+		assertEquals(false, Rankine.convertRankineToKelvin("1", "0.6"));
 	}
 	
 	

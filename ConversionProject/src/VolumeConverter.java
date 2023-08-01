@@ -8,8 +8,6 @@ import Volumes.Liters;
 
 public class VolumeConverter {
 	
-	public static Liters Liters = new Liters();
-	
 	//take 2 inputs, evaluate the first then run into switch based on second
 	
 	

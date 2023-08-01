@@ -9,7 +9,7 @@ import java.awt.*;
 public class Liters {
 	
 	//Liter conversions
-	public boolean convertLitersToLiters (String InputTempNumText, String StudentTempResponseText) {
+	public static boolean convertLitersToLiters (String InputTempNumText, String StudentTempResponseText) {
 		DecimalFormat df = new DecimalFormat("#.0");
 		df.setRoundingMode(RoundingMode.DOWN);
 		double studentTempResponse = Double.parseDouble(StudentTempResponseText);

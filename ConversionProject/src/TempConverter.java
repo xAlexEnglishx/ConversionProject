@@ -1,4 +1,10 @@
 import javax.swing.*;
+
+import Temperatures.Celsius;
+import Temperatures.Fahrenheit;
+import Temperatures.Kelvin;
+import Temperatures.Rankine;
+
 import java.awt.event.*;
 import java.math.RoundingMode;
 import java.text.DecimalFormat;
@@ -46,13 +52,13 @@ public class TempConverter {
 		
 		//Determine Target Temperature Unit
 		switch (TargetTempUnitDropdown) {
-	        case FAHRENHEIT : evaluation = convertFahrenheitToFahrenheit(InputTempNumText, StudentTempResponseText);
+	        case FAHRENHEIT : evaluation = Fahrenheit.convertFahrenheitToFahrenheit(InputTempNumText, StudentTempResponseText);
 	                 break;
-	        case CELSIUS : evaluation = convertFahrenheitToCelsius(InputTempNumText, StudentTempResponseText);
+	        case CELSIUS : evaluation = Fahrenheit.convertFahrenheitToCelsius(InputTempNumText, StudentTempResponseText);
 	                 break;
-	        case KELVIN : evaluation = convertFahrenheitToKelvin(InputTempNumText, StudentTempResponseText);
+	        case KELVIN : evaluation = Fahrenheit.convertFahrenheitToKelvin(InputTempNumText, StudentTempResponseText);
 	                 break;
-	        case RANKINE : evaluation = convertFahrenheitToRankine(InputTempNumText, StudentTempResponseText);
+	        case RANKINE : evaluation = Fahrenheit.convertFahrenheitToRankine(InputTempNumText, StudentTempResponseText);
 	                 break;
 	        default: return false;
 		}
@@ -65,13 +71,13 @@ public class TempConverter {
 		
 		//Determine Target Temperature Unit
 		switch (TargetTempUnitDropdown) {
-	        case FAHRENHEIT : evaluation = convertCelsiusToFahrenheit(InputTempNumText, StudentTempResponseText);
+	        case FAHRENHEIT : evaluation = Celsius.convertCelsiusToFahrenheit(InputTempNumText, StudentTempResponseText);
 	                 break;
-	        case CELSIUS : evaluation = convertCelsiusToCelsius(InputTempNumText, StudentTempResponseText);
+	        case CELSIUS : evaluation = Celsius.convertCelsiusToCelsius(InputTempNumText, StudentTempResponseText);
 	                 break;
-	        case KELVIN : evaluation = convertCelsiusToKelvin(InputTempNumText, StudentTempResponseText);
+	        case KELVIN : evaluation = Celsius.convertCelsiusToKelvin(InputTempNumText, StudentTempResponseText);
 	                 break;
-	        case RANKINE : evaluation = convertCelsiusToRankine(InputTempNumText, StudentTempResponseText);
+	        case RANKINE : evaluation = Celsius.convertCelsiusToRankine(InputTempNumText, StudentTempResponseText);
 	                 break;
 	        default: return false;
 		}
@@ -84,13 +90,13 @@ public class TempConverter {
 		
 		//Determine Target Temperature Unit
 		switch (TargetTempUnitDropdown) {
-	        case FAHRENHEIT : evaluation = convertKelvinToFahrenheit(InputTempNumText, StudentTempResponseText);
+	        case FAHRENHEIT : evaluation = Kelvin.convertKelvinToFahrenheit(InputTempNumText, StudentTempResponseText);
 	                 break;
-	        case CELSIUS : evaluation = convertKelvinToCelsius(InputTempNumText, StudentTempResponseText);
+	        case CELSIUS : evaluation = Kelvin.convertKelvinToCelsius(InputTempNumText, StudentTempResponseText);
 	                 break;
-	        case KELVIN : evaluation = convertKelvinToKelvin(InputTempNumText, StudentTempResponseText);
+	        case KELVIN : evaluation = Kelvin.convertKelvinToKelvin(InputTempNumText, StudentTempResponseText);
 	                 break;
-	        case RANKINE : evaluation = convertKelvinToRankine(InputTempNumText, StudentTempResponseText);
+	        case RANKINE : evaluation = Kelvin.convertKelvinToRankine(InputTempNumText, StudentTempResponseText);
 	                 break;
 	        default: return false;
 		}
@@ -103,13 +109,13 @@ public class TempConverter {
 		
 		//Determine Target Temperature Unit
 		switch (TargetTempUnitDropdown) {
-	        case FAHRENHEIT : evaluation = convertRankineToFahrenheit(InputTempNumText, StudentTempResponseText);
+	        case FAHRENHEIT : evaluation = Rankine.convertRankineToFahrenheit(InputTempNumText, StudentTempResponseText);
 	                 break;
-	        case CELSIUS : evaluation = convertRankineToCelsius(InputTempNumText, StudentTempResponseText);
+	        case CELSIUS : evaluation = Rankine.convertRankineToCelsius(InputTempNumText, StudentTempResponseText);
 	                 break;
-	        case KELVIN : evaluation = convertRankineToKelvin(InputTempNumText, StudentTempResponseText);
+	        case KELVIN : evaluation = Rankine.convertRankineToKelvin(InputTempNumText, StudentTempResponseText);
 	                 break;
-	        case RANKINE : evaluation = convertRankineToRankine(InputTempNumText, StudentTempResponseText);
+	        case RANKINE : evaluation = Rankine.convertRankineToRankine(InputTempNumText, StudentTempResponseText);
 	                 break;
 	        default: return false;
 		}
@@ -118,314 +124,6 @@ public class TempConverter {
 	
 	
 	
-	
-	
-	//Fahrenheit conversions
-	protected static boolean convertFahrenheitToFahrenheit (String InputTempNumText, String StudentTempResponseText) {
-		DecimalFormat df = new DecimalFormat("#.0");
-		df.setRoundingMode(RoundingMode.DOWN);
-		double studentTempResponse = Double.parseDouble(StudentTempResponseText);
-		double fahrenheit = Double.parseDouble(InputTempNumText);
-		
-		System.out.println("f: " + fahrenheit + " , fahrenheit: "+ fahrenheit + " , calcedfahrenheit" +
-				String.valueOf(df.format(fahrenheit)) + " , student: " + String.valueOf(df.format(studentTempResponse)));
-		
-		if (String.valueOf(df.format(fahrenheit)).equals(String.valueOf(df.format(studentTempResponse)))) {
-			System.out.println("MADE IT");
-			return true;
-		} else {
-			return false;
-		}
-	}
-	
-	protected static boolean convertFahrenheitToCelsius (String InputTempNumText, String StudentTempResponseText) {
-		DecimalFormat df = new DecimalFormat("#.0");
-		df.setRoundingMode(RoundingMode.DOWN);
-		double studentTempResponse = Double.parseDouble(StudentTempResponseText);
-		double fahrenheit = Double.parseDouble(InputTempNumText);
-		double celsius = (fahrenheit - 32) * 5 / 9;
-		
-		System.out.println("f: " + fahrenheit + " , celsius: "+ celsius + " , calcedC" +
-				String.valueOf(df.format(celsius)) + " , student: " + String.valueOf(df.format(studentTempResponse)));
-		
-		if (String.valueOf(df.format(celsius)).equals(String.valueOf(df.format(studentTempResponse)))) {
-			System.out.println("MADE IT");
-			return true;
-		} else {
-			return false;
-		}
-	}
-	
-	protected static boolean convertFahrenheitToKelvin (String InputTempNumText, String StudentTempResponseText) {
-		DecimalFormat df = new DecimalFormat("#.0");
-		df.setRoundingMode(RoundingMode.DOWN);
-		double studentTempResponse = Double.parseDouble(StudentTempResponseText);
-		double fahrenheit = Double.parseDouble(InputTempNumText);
-		//273.15 + ((F - 32.0) * (5.0/9.0))
-		double kelvin = 273.15 + ((fahrenheit - 32.0) * (5.0/9.0));
-		
-		System.out.println("f: " + fahrenheit + " , kelvin: "+ kelvin + " , calcedkelvin" +
-				String.valueOf(df.format(kelvin)) + " , student: " + String.valueOf(df.format(studentTempResponse)));
-		
-		if (String.valueOf(df.format(kelvin)).equals(String.valueOf(df.format(studentTempResponse)))) {
-			System.out.println("MADE IT");
-			return true;
-		} else {
-			return false;
-		}
-	}
-	
-	protected static boolean convertFahrenheitToRankine (String InputTempNumText, String StudentTempResponseText) {
-		DecimalFormat df = new DecimalFormat("#.0");
-		df.setRoundingMode(RoundingMode.DOWN);
-		double studentTempResponse = Double.parseDouble(StudentTempResponseText);
-		double fahrenheit = Double.parseDouble(InputTempNumText);
-		//32°F + 459.67
-		double rankine = fahrenheit + 459.67;
-		
-		System.out.println("f: " + fahrenheit + " , rankine: "+ rankine + " , calcedrankine" +
-				String.valueOf(df.format(rankine)) + " , student: " + String.valueOf(df.format(studentTempResponse)));
-		
-		if (String.valueOf(df.format(rankine)).equals(String.valueOf(df.format(studentTempResponse)))) {
-			System.out.println("MADE IT");
-			return true;
-		} else {
-			return false;
-		}
-	}
-	
-	
-	
-	
-	//Celsius conversions
-	protected static boolean convertCelsiusToCelsius (String InputTempNumText, String StudentTempResponseText) {
-		DecimalFormat df = new DecimalFormat("#.0");
-		df.setRoundingMode(RoundingMode.DOWN);
-		double studentTempResponse = Double.parseDouble(StudentTempResponseText);
-		double celsius = Double.parseDouble(InputTempNumText);
-		
-		System.out.println("1: " + celsius + " , 2: "+ celsius + " , 3: " +
-				String.valueOf(df.format(celsius)) + " , student: " + String.valueOf(df.format(studentTempResponse)));
-		
-		if (String.valueOf(df.format(celsius)).equals(String.valueOf(df.format(studentTempResponse)))) {
-			System.out.println("MADE IT");
-			return true;
-		} else {
-			return false;
-		}
-	}
-	
-	protected static boolean convertCelsiusToFahrenheit (String InputTempNumText, String StudentTempResponseText) {
-		DecimalFormat df = new DecimalFormat("#.0");
-		df.setRoundingMode(RoundingMode.DOWN);
-		double studentTempResponse = Double.parseDouble(StudentTempResponseText);
-		double celsius = Double.parseDouble(InputTempNumText);
-//		(0°C × 9/5) + 32
-		double fahrenheit = (celsius * 9/5) + 32;
-		
-		System.out.println("1: " + fahrenheit + " , 2: "+ fahrenheit + " , 3: " +
-				String.valueOf(df.format(fahrenheit)) + " , student: " + String.valueOf(df.format(studentTempResponse)));
-		
-		if (String.valueOf(df.format(fahrenheit)).equals(String.valueOf(df.format(studentTempResponse)))) {
-			System.out.println("MADE IT");
-			return true;
-		} else {
-			return false;
-		}
-	}
-	
-	protected static boolean convertCelsiusToKelvin (String InputTempNumText, String StudentTempResponseText) {
-		DecimalFormat df = new DecimalFormat("#.0");
-		df.setRoundingMode(RoundingMode.DOWN);
-		double studentTempResponse = Double.parseDouble(StudentTempResponseText);
-		double celsius = Double.parseDouble(InputTempNumText);
-//		0°C + 273.15
-		double kelvin = celsius + 273.15;
-		
-		System.out.println("1: " + kelvin + " , 2: "+ kelvin + " , 3: " +
-				String.valueOf(df.format(kelvin)) + " , student: " + String.valueOf(df.format(studentTempResponse)));
-		
-		if (String.valueOf(df.format(kelvin)).equals(String.valueOf(df.format(studentTempResponse)))) {
-			System.out.println("MADE IT");
-			return true;
-		} else {
-			return false;
-		}
-	}
-	
-	protected static boolean convertCelsiusToRankine (String InputTempNumText, String StudentTempResponseText) {
-		DecimalFormat df = new DecimalFormat("#.0");
-		df.setRoundingMode(RoundingMode.DOWN);
-		double studentTempResponse = Double.parseDouble(StudentTempResponseText);
-		double celsius = Double.parseDouble(InputTempNumText);
-//		0°C × 9/5 + 491.67
-		double rankine = celsius * 9/5 + 491.67;
-		
-		System.out.println("1: " + rankine + " , 2: "+ rankine + " , 3: " +
-				String.valueOf(df.format(rankine)) + " , student: " + String.valueOf(df.format(studentTempResponse)));
-		
-		if (String.valueOf(df.format(rankine)).equals(String.valueOf(df.format(studentTempResponse)))) {
-			System.out.println("MADE IT");
-			return true;
-		} else {
-			return false;
-		}
-	}
-	
-	
-	
-	
-	//Kelvin conversions
-	protected static boolean convertKelvinToKelvin (String InputTempNumText, String StudentTempResponseText) {
-		DecimalFormat df = new DecimalFormat("#.0");
-		df.setRoundingMode(RoundingMode.DOWN);
-		double studentTempResponse = Double.parseDouble(StudentTempResponseText);
-		double kelvin = Double.parseDouble(InputTempNumText);
-		
-		System.out.println("1: " + kelvin + " , 2: "+ kelvin + " , 3: " +
-				String.valueOf(df.format(kelvin)) + " , student: " + String.valueOf(df.format(studentTempResponse)));
-		
-		if (String.valueOf(df.format(kelvin)).equals(String.valueOf(df.format(studentTempResponse)))) {
-			System.out.println("MADE IT");
-			return true;
-		} else {
-			return false;
-		}
-	}
-	
-	protected static boolean convertKelvinToFahrenheit (String InputTempNumText, String StudentTempResponseText) {
-		DecimalFormat df = new DecimalFormat("#.0");
-		df.setRoundingMode(RoundingMode.DOWN);
-		double studentTempResponse = Double.parseDouble(StudentTempResponseText);
-		double kelvin = Double.parseDouble(InputTempNumText);
-//		(0K − 273.15) × 9/5 + 32
-		double fahrenheit = (kelvin - 273.15) * 9/5 + 32;
-		
-		System.out.println("1: " + fahrenheit + " , 2: "+ fahrenheit + " , 3: " +
-				String.valueOf(df.format(fahrenheit)) + " , student: " + String.valueOf(df.format(studentTempResponse)));
-		
-		if (String.valueOf(df.format(fahrenheit)).equals(String.valueOf(df.format(studentTempResponse)))) {
-			System.out.println("MADE IT");
-			return true;
-		} else {
-			return false;
-		}
-	}
-	
-	protected static boolean convertKelvinToCelsius (String InputTempNumText, String StudentTempResponseText) {
-		DecimalFormat df = new DecimalFormat("#.0");
-		df.setRoundingMode(RoundingMode.DOWN);
-		double studentTempResponse = Double.parseDouble(StudentTempResponseText);
-		double kelvin = Double.parseDouble(InputTempNumText);
-//		0K − 273.15 
-		double celsius = kelvin - 273.15;
-		
-		System.out.println("1: " + celsius + " , 2: "+ celsius + " , 3: " +
-				String.valueOf(df.format(celsius)) + " , student: " + String.valueOf(df.format(studentTempResponse)));
-		
-		if (String.valueOf(df.format(celsius)).equals(String.valueOf(df.format(studentTempResponse)))) {
-			System.out.println("MADE IT");
-			return true;
-		} else {
-			return false;
-		}
-	}
-	
-	protected static boolean convertKelvinToRankine (String InputTempNumText, String StudentTempResponseText) {
-		DecimalFormat df = new DecimalFormat("#.0");
-		df.setRoundingMode(RoundingMode.DOWN);
-		double studentTempResponse = Double.parseDouble(StudentTempResponseText);
-		double kelvin = Double.parseDouble(InputTempNumText);
-//		K * 9/5
-		double rankine = kelvin * 9/5;
-		
-		System.out.println("1: " + rankine + " , 2: "+ rankine + " , 3: " +
-				String.valueOf(df.format(rankine)) + " , student: " + String.valueOf(df.format(studentTempResponse)));
-		
-		if (String.valueOf(df.format(rankine)).equals(String.valueOf(df.format(studentTempResponse)))) {
-			System.out.println("MADE IT");
-			return true;
-		} else {
-			return false;
-		}
-	}
-	
-	
-	
-	//Rankine conversions
-	protected static boolean convertRankineToRankine (String InputTempNumText, String StudentTempResponseText) {
-		DecimalFormat df = new DecimalFormat("#.0");
-		df.setRoundingMode(RoundingMode.DOWN);
-		double studentTempResponse = Double.parseDouble(StudentTempResponseText);
-		double rankine = Double.parseDouble(InputTempNumText);
-		
-		System.out.println("1: " + rankine + " , 2: "+ rankine + " , 3: " +
-				String.valueOf(df.format(rankine)) + " , student: " + String.valueOf(df.format(studentTempResponse)));
-		
-		if (String.valueOf(df.format(rankine)).equals(String.valueOf(df.format(studentTempResponse)))) {
-			System.out.println("MADE IT");
-			return true;
-		} else {
-			return false;
-		}
-	}
-	
-	protected static boolean convertRankineToFahrenheit (String InputTempNumText, String StudentTempResponseText) {
-		DecimalFormat df = new DecimalFormat("#.0");
-		df.setRoundingMode(RoundingMode.DOWN);
-		double studentTempResponse = Double.parseDouble(StudentTempResponseText);
-		double rankine = Double.parseDouble(InputTempNumText);
-//		1°R − 459.67
-		double fahrenheit = rankine - 459.67;
-		
-		System.out.println("1: " + fahrenheit + " , 2: "+ fahrenheit + " , 3: " +
-				String.valueOf(df.format(fahrenheit)) + " , student: " + String.valueOf(df.format(studentTempResponse)));
-		
-		if (String.valueOf(df.format(fahrenheit)).equals(String.valueOf(df.format(studentTempResponse)))) {
-			System.out.println("MADE IT");
-			return true;
-		} else {
-			return false;
-		}
-	}
-	
-	protected static boolean convertRankineToCelsius (String InputTempNumText, String StudentTempResponseText) {
-		DecimalFormat df = new DecimalFormat("#.0");
-		df.setRoundingMode(RoundingMode.DOWN);
-		double studentTempResponse = Double.parseDouble(StudentTempResponseText);
-		double rankine = Double.parseDouble(InputTempNumText);
-//		(1°R − 491.67) × 5/9
-		double celsius = (rankine - 491.67) * 5/9;
-		
-		System.out.println("1: " + celsius + " , 2: "+ celsius + " , 3: " +
-				String.valueOf(df.format(celsius)) + " , student: " + String.valueOf(df.format(studentTempResponse)));
-		
-		if (String.valueOf(df.format(celsius)).equals(String.valueOf(df.format(studentTempResponse)))) {
-			System.out.println("MADE IT");
-			return true;
-		} else {
-			return false;
-		}
-	}
-	
-	protected static boolean convertRankineToKelvin (String InputTempNumText, String StudentTempResponseText) {
-		DecimalFormat df = new DecimalFormat("#.0");
-		df.setRoundingMode(RoundingMode.DOWN);
-		double studentTempResponse = Double.parseDouble(StudentTempResponseText);
-		double rankine = Double.parseDouble(InputTempNumText);
-//		1°R × 5/9
-		double kelvin = rankine * 5/9;
-		
-		System.out.println("1: " + kelvin + " , 2: "+ kelvin + " , 3: " +
-				String.valueOf(df.format(kelvin)) + " , student: " + String.valueOf(df.format(studentTempResponse)));
-		
-		if (String.valueOf(df.format(kelvin)).equals(String.valueOf(df.format(studentTempResponse)))) {
-			System.out.println("MADE IT");
-			return true;
-		} else {
-			return false;
-		}
-	}
 	
 	
 	
