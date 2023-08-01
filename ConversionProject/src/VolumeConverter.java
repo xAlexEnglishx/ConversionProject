@@ -11,7 +11,7 @@ public class VolumeConverter {
 	//take 2 inputs, evaluate the first then run into switch based on second
 	
 	
-	public static boolean evaluateTempConversion(String InputTempNumText, String StudentTempResponseText, 
+	public static boolean evaluateVolConversion(String InputTempNumText, String StudentTempResponseText, 
 											VolumeEnum InputTempUnitDropdown, VolumeEnum TargetTempUnitDropdown) {
 		System.out.println("test789" + " , " 
 				+ InputTempNumText + " , " 
@@ -61,21 +61,16 @@ public class VolumeConverter {
 		switch (TargetTempUnitDropdown) {
 	        case LITERS : evaluation = Liters.convertLitersToLiters(InputTempNumText, StudentTempResponseText);
 	                break;
-//	        case TABLESPOONS : evaluation = convertFromTablespoons(InputTempNumText, StudentTempResponseText, 
-//					TargetTempUnitDropdown);
-//					break;
-//			case CUBIC_INCHES : evaluation = convertFromCubicInches(InputTempNumText, StudentTempResponseText, 
-//								TargetTempUnitDropdown);
-//					break;
-//			case CUPS : evaluation = convertFromCups(InputTempNumText, StudentTempResponseText, 
-//								TargetTempUnitDropdown);
-//					break;
-//			case CUBIC_FEET : evaluation = convertFromCubicFeet(InputTempNumText, StudentTempResponseText, 
-//								TargetTempUnitDropdown);
-//					break;
-//			case GALLONS : evaluation = convertFromGallons(InputTempNumText, StudentTempResponseText, 
-//								TargetTempUnitDropdown);
-//					break;
+	        case TABLESPOONS : evaluation = Liters.convertLitersToTablespoons(InputTempNumText, StudentTempResponseText);
+					break;
+			case CUBIC_INCHES : evaluation = Liters.convertLitersToCubicInches(InputTempNumText, StudentTempResponseText);
+					break;
+			case CUPS : evaluation = Liters.convertLitersToCups(InputTempNumText, StudentTempResponseText);
+					break;
+			case CUBIC_FEET : evaluation = Liters.convertLitersToCubicFeet(InputTempNumText, StudentTempResponseText);
+					break;
+			case GALLONS : evaluation = Liters.convertLitersToGallons(InputTempNumText, StudentTempResponseText);
+					break;
 			default: return false;
 		}
 		return evaluation;

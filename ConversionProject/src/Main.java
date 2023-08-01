@@ -199,24 +199,24 @@ public class Main {
 					//Verfiy up to tenths place, anything else reveals invalid before calculation
 					//validate inputs
 					System.out.println("Volume");
-//					if (TempConverter.verifyInputs(InputTempNumText.getText(), StudentTempResponseText.getText())) {
-//						//Evaluate conversion
-//						boolean conversionEvaluation = TempConverter.evaluateTempConversion(
-//								InputTempNumText.getText(), 
-//								StudentTempResponseText.getText(),
-//								(TemperatureEnum)InputTempUnitDropdown.getSelectedItem(), 
-//								(TemperatureEnum)TargetTempUnitDropdown.getSelectedItem());
-//						System.out.println("test1234" + conversionEvaluation);
-//						
-//						if (conversionEvaluation == true) {
-//							TempOutput.setText("Output: correct");
-//						} else {
-//							TempOutput.setText("Output: incorrect");
-//						}
-//					} else {
-//						System.out.println("Invalid entry");
-//						TempOutput.setText("Output: invalid");
-//					}
+					if (VolumeConverter.verifyInputs(InputVolNumText.getText(), StudentVolResponseText.getText())) {
+						//Evaluate conversion
+						boolean conversionEvaluation = VolumeConverter.evaluateVolConversion(
+								InputVolNumText.getText(), 
+								StudentVolResponseText.getText(),
+								(VolumeEnum)InputVolUnitDropdown.getSelectedItem(), 
+								(VolumeEnum)TargetVolUnitDropdown.getSelectedItem());
+						System.out.println("test1234" + conversionEvaluation);
+						
+						if (conversionEvaluation == true) {
+							VolOutput.setText("Output: correct");
+						} else {
+							VolOutput.setText("Output: incorrect");
+						}
+					} else {
+						System.out.println("Invalid entry");
+						VolOutput.setText("Output: invalid");
+					}
 				}
 			}
 		);

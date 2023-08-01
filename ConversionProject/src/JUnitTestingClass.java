@@ -11,6 +11,7 @@ import Temperatures.Celsius;
 import Temperatures.Fahrenheit;
 import Temperatures.Kelvin;
 import Temperatures.Rankine;
+import Volumes.Liters;
 
 public class JUnitTestingClass {
 //	@Test
@@ -203,5 +204,65 @@ public class JUnitTestingClass {
 	
 	
 	//Volume Testing
-
+	//Liters
+	@Test
+	public void testSuccessConvertLitersToLiters() {
+		assertEquals(true, Liters.convertLitersToLiters("1", "1"));
+	}
+	
+	@Test
+	public void testFailureConvertLiterstoLiters() {
+		assertEquals(false, Liters.convertLitersToLiters("1", "0.6"));
+	}
+	
+	@Test
+	public void testSuccessConvertLitersToTablespoons() {
+		assertEquals(true, Liters.convertLitersToTablespoons("1", "67.6"));
+	}
+	
+	@Test
+	public void testFailureConvertLitersToTablespoons() {
+		assertEquals(false, Liters.convertLitersToTablespoons("1", "67.7"));
+	}
+	
+	@Test
+	public void testSuccessConvertLitersToCubicInches() {
+		assertEquals(true, Liters.convertLitersToCubicInches("1", "61"));
+	}
+	
+	@Test
+	public void testFailureConvertLitersToCubicInches() {
+		assertEquals(false, Liters.convertLitersToCubicInches("1", "61.1"));
+	}
+	
+	@Test
+	public void testSuccessConvertLitersToCups() {
+		assertEquals(true, Liters.convertLitersToCups("1", "4.2"));
+	}
+	
+	@Test
+	public void testFailureConvertLitersToCups() {
+		assertEquals(false, Liters.convertLitersToCups("1", "4.3"));
+	}
+	
+	@Test
+	public void testSuccessConvertLitersToCubicFeet() {
+		assertEquals(true, Liters.convertLitersToCubicFeet("1", "0"));
+		assertEquals(true, Liters.convertLitersToCubicFeet("3", "0.1"));
+	}
+	
+	@Test
+	public void testFailureConvertLitersToCubicFeet() {
+		assertEquals(false, Liters.convertLitersToCubicFeet("1", "0.1"));
+	}
+	
+	@Test
+	public void testSuccessConvertLitersToGallons() {
+		assertEquals(true, Liters.convertLitersToGallons("1", "0.2"));
+	}
+	
+	@Test
+	public void testFailureConvertLitersToGallons() {
+		assertEquals(false, Liters.convertLitersToGallons("1", "0.3"));
+	}
 }
