@@ -6,7 +6,7 @@ import java.text.DecimalFormat;
 import java.util.regex.Pattern;
 import java.awt.*;
 
-public class Tablespoons {
+public class CubicInches {
 	
 //	LITERS,
 //	TABLESPOONS,
@@ -22,42 +22,12 @@ public class Tablespoons {
 //	CubicFeet
 //	Gallons
 	
-	//Tablespoons conversions
-	public static boolean convertTablespoonsToTablespoons (String InputTempNumText, String StudentTempResponseText) {
+	//Cubic Inches conversions
+	public static boolean convertCubicInchesToCubicInches (String InputTempNumText, String StudentTempResponseText) {
 		DecimalFormat df = new DecimalFormat("#.0");
 		df.setRoundingMode(RoundingMode.DOWN);
 		double studentTempResponse = Double.parseDouble(StudentTempResponseText);
-		double tablespoons = Double.parseDouble(InputTempNumText);
-		
-		if (String.valueOf(df.format(tablespoons)).equals(String.valueOf(df.format(studentTempResponse)))) {
-			System.out.println("MADE IT");
-			return true;
-		} else {
-			return false;
-		}
-	}
-	
-	public static boolean convertTablespoonsToLiters (String InputTempNumText, String StudentTempResponseText) {
-		DecimalFormat df = new DecimalFormat("#.0");
-		df.setRoundingMode(RoundingMode.DOWN);
-		double studentTempResponse = Double.parseDouble(StudentTempResponseText);
-		double tablespoons = Double.parseDouble(InputTempNumText);
-		double liters = tablespoons / 67.628;
-		
-		if (String.valueOf(df.format(liters)).equals(String.valueOf(df.format(studentTempResponse)))) {
-			System.out.println("MADE IT");
-			return true;
-		} else {
-			return false;
-		}
-	}
-	
-	public static boolean convertTablespoonsToCubicInches (String InputTempNumText, String StudentTempResponseText) {
-		DecimalFormat df = new DecimalFormat("#.0");
-		df.setRoundingMode(RoundingMode.DOWN);
-		double studentTempResponse = Double.parseDouble(StudentTempResponseText);
-		double tablespoons = Double.parseDouble(InputTempNumText);
-		double cubicInches = tablespoons / 1.108;
+		double cubicInches = Double.parseDouble(InputTempNumText);
 		
 		if (String.valueOf(df.format(cubicInches)).equals(String.valueOf(df.format(studentTempResponse)))) {
 			System.out.println("MADE IT");
@@ -67,12 +37,42 @@ public class Tablespoons {
 		}
 	}
 	
-	public static boolean convertTablespoonsToCups (String InputTempNumText, String StudentTempResponseText) {
+	public static boolean convertCubicInchesToLiters (String InputTempNumText, String StudentTempResponseText) {
 		DecimalFormat df = new DecimalFormat("#.0");
 		df.setRoundingMode(RoundingMode.DOWN);
 		double studentTempResponse = Double.parseDouble(StudentTempResponseText);
-		double tablespoons = Double.parseDouble(InputTempNumText);
-		double cups = tablespoons / 16;
+		double cubicInches = Double.parseDouble(InputTempNumText);
+		double liters = cubicInches / 61.024;
+		
+		if (String.valueOf(df.format(liters)).equals(String.valueOf(df.format(studentTempResponse)))) {
+			System.out.println("MADE IT");
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
+	public static boolean convertCubicInchesToTablespoons (String InputTempNumText, String StudentTempResponseText) {
+		DecimalFormat df = new DecimalFormat("#.0");
+		df.setRoundingMode(RoundingMode.DOWN);
+		double studentTempResponse = Double.parseDouble(StudentTempResponseText);
+		double cubicInches = Double.parseDouble(InputTempNumText);
+		double tablespoons = cubicInches * 1.108;
+		
+		if (String.valueOf(df.format(tablespoons)).equals(String.valueOf(df.format(studentTempResponse)))) {
+			System.out.println("MADE IT");
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
+	public static boolean convertCubicInchesToCups (String InputTempNumText, String StudentTempResponseText) {
+		DecimalFormat df = new DecimalFormat("#.0");
+		df.setRoundingMode(RoundingMode.DOWN);
+		double studentTempResponse = Double.parseDouble(StudentTempResponseText);
+		double cubicInches = Double.parseDouble(InputTempNumText);
+		double cups = cubicInches / 14.438;
 		
 		if (String.valueOf(df.format(cups)).equals(String.valueOf(df.format(studentTempResponse)))) {
 			System.out.println("MADE IT");
@@ -82,12 +82,12 @@ public class Tablespoons {
 		}
 	}
 	
-	public static boolean convertTablespoonsToCubicFeet (String InputTempNumText, String StudentTempResponseText) {
+	public static boolean convertCubicInchesToCubicFeet (String InputTempNumText, String StudentTempResponseText) {
 		DecimalFormat df = new DecimalFormat("#.0");
 		df.setRoundingMode(RoundingMode.DOWN);
 		double studentTempResponse = Double.parseDouble(StudentTempResponseText);
-		double tablespoons = Double.parseDouble(InputTempNumText);
-		double cubicFeet = tablespoons / 1915;
+		double cubicInches = Double.parseDouble(InputTempNumText);
+		double cubicFeet = cubicInches / 1728;
 		
 		if (String.valueOf(df.format(cubicFeet)).equals(String.valueOf(df.format(studentTempResponse)))) {
 			System.out.println("MADE IT");
@@ -97,12 +97,12 @@ public class Tablespoons {
 		}
 	}
 	
-	public static boolean convertTablespoonsToGallons (String InputTempNumText, String StudentTempResponseText) {
+	public static boolean convertCubicInchesToGallons (String InputTempNumText, String StudentTempResponseText) {
 		DecimalFormat df = new DecimalFormat("#.0");
 		df.setRoundingMode(RoundingMode.DOWN);
 		double studentTempResponse = Double.parseDouble(StudentTempResponseText);
-		double tablespoons = Double.parseDouble(InputTempNumText);
-		double gallons = tablespoons / 265;
+		double cubicInches = Double.parseDouble(InputTempNumText);
+		double gallons = cubicInches / 231;
 		
 		if (String.valueOf(df.format(gallons)).equals(String.valueOf(df.format(studentTempResponse)))) {
 			System.out.println("MADE IT");

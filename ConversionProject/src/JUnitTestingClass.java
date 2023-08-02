@@ -11,6 +11,7 @@ import Temperatures.Celsius;
 import Temperatures.Fahrenheit;
 import Temperatures.Kelvin;
 import Temperatures.Rankine;
+import Volumes.CubicInches;
 import Volumes.Liters;
 import Volumes.Tablespoons;
 
@@ -330,5 +331,70 @@ public class JUnitTestingClass {
 	@Test
 	public void testFailureConvertTablespoonsToGallons() {
 		assertEquals(false, Tablespoons.convertTablespoonsToGallons("1", "0.1"));
+	}
+	
+	//Cubic Inches
+	@Test
+	public void testSuccessConvertCubicInchesToCubicInches() {
+		assertEquals(true, CubicInches.convertCubicInchesToCubicInches("1", "1"));
+	}
+	
+	@Test
+	public void testFailureConvertCubicInchesToCubicInches() {
+		assertEquals(false, CubicInches.convertCubicInchesToCubicInches("1", "0.6"));
+	}
+	
+	@Test
+	public void testSuccessConvertCubicInchesToLiters() {
+		assertEquals(true, CubicInches.convertCubicInchesToLiters("1", "0"));
+		assertEquals(true, CubicInches.convertCubicInchesToLiters("10", "0.1"));
+	}
+	
+	@Test
+	public void testFailureConvertCubicInchesToLiters() {
+		assertEquals(false, CubicInches.convertCubicInchesToLiters("1", "0.6"));
+	}
+	
+	@Test
+	public void testSuccessConvertCubicInchesToTablespoons() {
+		assertEquals(true, CubicInches.convertCubicInchesToTablespoons("1", "1.1"));
+	}
+	
+	@Test
+	public void testFailureConvertCubicInchesToTablespoons() {
+		assertEquals(false, CubicInches.convertCubicInchesToTablespoons("1", "1"));
+	}
+	
+	@Test
+	public void testSuccessConvertCubicInchesToCups() {
+		assertEquals(true, CubicInches.convertCubicInchesToCups("1", "0"));
+		assertEquals(true, CubicInches.convertCubicInchesToCups("2", "0.1"));
+	}
+	
+	@Test
+	public void testFailureConvertCubicInchesToCups() {
+		assertEquals(false, CubicInches.convertCubicInchesToCups("1", "0.6"));
+	}
+	
+	@Test
+	public void testSuccessConvertCubicInchesToCubicFeet() {
+		assertEquals(true, CubicInches.convertCubicInchesToCubicFeet("1", "0"));
+		assertEquals(true, CubicInches.convertCubicInchesToCubicFeet("1000", "0.5"));
+	}
+	
+	@Test
+	public void testFailureConvertCubicInchesToCubicFeet() {
+		assertEquals(false, CubicInches.convertCubicInchesToCubicFeet("1", "0.6"));
+	}
+	
+	@Test
+	public void testSuccessConvertCubicInchesToGallons() {
+		assertEquals(true, CubicInches.convertCubicInchesToGallons("1", "0"));
+		assertEquals(true, CubicInches.convertCubicInchesToGallons("100", "0.4"));
+	}
+	
+	@Test
+	public void testFailureConvertCubicInchesToGallons() {
+		assertEquals(false, CubicInches.convertCubicInchesToGallons("1", "0.6"));
 	}
 }

@@ -4,6 +4,8 @@ import java.math.RoundingMode;
 import java.text.DecimalFormat;
 import java.util.regex.Pattern;
 import java.awt.*;
+
+import Volumes.CubicInches;
 import Volumes.Liters;
 import Volumes.Tablespoons;
 
@@ -95,8 +97,8 @@ public class VolumeConverter {
 					break;
 			case GALLONS : evaluation = Tablespoons.convertTablespoonsToGallons(InputTempNumText, StudentTempResponseText);
 					break;
-		default: return false;
-	}
+			default: return false;
+		}
 		return evaluation;
 	}
 	
@@ -105,17 +107,21 @@ public class VolumeConverter {
 		boolean evaluation = false;
 		
 		//Determine Target Volume Unit
-		//switch (TargetTempUnitDropdown) {
-		//case FAHRENHEIT : evaluation = convertFahrenheitToFahrenheit(InputTempNumText, StudentTempResponseText);
-		//break;
-		//case CELSIUS : evaluation = convertFahrenheitToCelsius(InputTempNumText, StudentTempResponseText);
-		//break;
-		//case KELVIN : evaluation = convertFahrenheitToKelvin(InputTempNumText, StudentTempResponseText);
-		//break;
-		//case RANKINE : evaluation = convertFahrenheitToRankine(InputTempNumText, StudentTempResponseText);
-		//break;
-		//default: return false;
-		//}
+		switch (TargetTempUnitDropdown) {
+			case LITERS : evaluation = CubicInches.convertCubicInchesToLiters(InputTempNumText, StudentTempResponseText);
+			        break;
+			case TABLESPOONS : evaluation = CubicInches.convertCubicInchesToTablespoons(InputTempNumText, StudentTempResponseText);
+					break;
+			case CUBIC_INCHES : evaluation = CubicInches.convertCubicInchesToCubicInches(InputTempNumText, StudentTempResponseText);
+					break;
+			case CUPS : evaluation = CubicInches.convertCubicInchesToCups(InputTempNumText, StudentTempResponseText);
+					break;
+			case CUBIC_FEET : evaluation = CubicInches.convertCubicInchesToCubicFeet(InputTempNumText, StudentTempResponseText);
+					break;
+			case GALLONS : evaluation = CubicInches.convertCubicInchesToGallons(InputTempNumText, StudentTempResponseText);
+					break;
+			default: return false;
+		}
 		return evaluation;
 	}
 	
