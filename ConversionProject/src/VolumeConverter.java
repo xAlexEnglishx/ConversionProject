@@ -6,6 +6,7 @@ import java.util.regex.Pattern;
 import java.awt.*;
 
 import Volumes.CubicInches;
+import Volumes.Cups;
 import Volumes.Liters;
 import Volumes.Tablespoons;
 
@@ -126,21 +127,25 @@ public class VolumeConverter {
 	}
 	
 	private static boolean convertFromCups (String InputTempNumText, String StudentTempResponseText, 
-				VolumeEnum TargetTempUnitDropdown) {
+											VolumeEnum TargetTempUnitDropdown) {
 		boolean evaluation = false;
 		
 		//Determine Target Volume Unit
-		//switch (TargetTempUnitDropdown) {
-		//case FAHRENHEIT : evaluation = convertFahrenheitToFahrenheit(InputTempNumText, StudentTempResponseText);
-		//break;
-		//case CELSIUS : evaluation = convertFahrenheitToCelsius(InputTempNumText, StudentTempResponseText);
-		//break;
-		//case KELVIN : evaluation = convertFahrenheitToKelvin(InputTempNumText, StudentTempResponseText);
-		//break;
-		//case RANKINE : evaluation = convertFahrenheitToRankine(InputTempNumText, StudentTempResponseText);
-		//break;
-		//default: return false;
-		//}
+		switch (TargetTempUnitDropdown) {
+			case LITERS : evaluation = Cups.convertCupsToLiters(InputTempNumText, StudentTempResponseText);
+	        		break;
+			case TABLESPOONS : evaluation = Cups.convertCupsToTablespoons(InputTempNumText, StudentTempResponseText);
+					break;
+			case CUBIC_INCHES : evaluation = Cups.convertCupsToCubicInches(InputTempNumText, StudentTempResponseText);
+					break;
+			case CUPS : evaluation = Cups.convertCupsToCups(InputTempNumText, StudentTempResponseText);
+					break;
+			case CUBIC_FEET : evaluation = Cups.convertCupsToCubicFeet(InputTempNumText, StudentTempResponseText);
+					break;
+			case GALLONS : evaluation = Cups.convertCupsToGallons(InputTempNumText, StudentTempResponseText);
+					break;
+		default: return false;
+		}
 		return evaluation;
 	}
 	

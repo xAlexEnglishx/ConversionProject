@@ -12,6 +12,7 @@ import Temperatures.Fahrenheit;
 import Temperatures.Kelvin;
 import Temperatures.Rankine;
 import Volumes.CubicInches;
+import Volumes.Cups;
 import Volumes.Liters;
 import Volumes.Tablespoons;
 
@@ -396,5 +397,68 @@ public class JUnitTestingClass {
 	@Test
 	public void testFailureConvertCubicInchesToGallons() {
 		assertEquals(false, CubicInches.convertCubicInchesToGallons("1", "0.6"));
+	}
+	
+	//Cups
+	@Test
+	public void testSuccessConvertCupsToCups() {
+		assertEquals(true, Cups.convertCupsToCups("1", "1"));
+	}
+	
+	@Test
+	public void testFailureConvertCupsToCup() {
+		assertEquals(false, Cups.convertCupsToCups("1", "0.6"));
+	}
+	
+	@Test
+	public void testSuccessConvertCupsToLiters() {
+		assertEquals(true, Cups.convertCupsToLiters("1", "0.2"));
+	}
+	
+	@Test
+	public void testFailureConvertCupsToLiters() {
+		assertEquals(false, Cups.convertCupsToLiters("1", "0.6"));
+	}
+	
+	@Test
+	public void testSuccessConvertCupsToTablespoons() {
+		assertEquals(true, Cups.convertCupsToTablespoons("1", "16"));
+	}
+	
+	@Test
+	public void testFailureConvertCupsToTablespoons() {
+		assertEquals(false, Cups.convertCupsToTablespoons("1", "0.6"));
+	}
+	
+	@Test
+	public void testSuccessConvertCupsToCubicInches() {
+		assertEquals(true, Cups.convertCupsToCubicInches("1", "14.4"));
+	}
+	
+	@Test
+	public void testFailureConvertCupsToCubicInches() {
+		assertEquals(false, Cups.convertCupsToCubicInches("1", "0.6"));
+	}
+	
+	@Test
+	public void testSuccessConvertCupsToCubicFeet() {
+		assertEquals(true, Cups.convertCupsToCubicFeet("1", "0"));
+		assertEquals(true, Cups.convertCupsToCubicFeet("100", "0.8"));
+	}
+	
+	@Test
+	public void testFailureConvertCupsToCubicFeet() {
+		assertEquals(false, Cups.convertCupsToCubicFeet("1", "0.6"));
+	}
+	
+	@Test
+	public void testSuccessConvertCupsToGallons() {
+		assertEquals(true, Cups.convertCupsToGallons("1", "0"));
+		assertEquals(true, Cups.convertCupsToGallons("10", "0.6"));
+	}
+	
+	@Test
+	public void testFailureConvertCupsToGallons() {
+		assertEquals(false, Cups.convertCupsToGallons("1", "0.6"));
 	}
 }
