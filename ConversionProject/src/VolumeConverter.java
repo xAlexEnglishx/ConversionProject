@@ -5,6 +5,7 @@ import java.text.DecimalFormat;
 import java.util.regex.Pattern;
 import java.awt.*;
 
+import Volumes.CubicFeet;
 import Volumes.CubicInches;
 import Volumes.Cups;
 import Volumes.Liters;
@@ -144,7 +145,7 @@ public class VolumeConverter {
 					break;
 			case GALLONS : evaluation = Cups.convertCupsToGallons(InputTempNumText, StudentTempResponseText);
 					break;
-		default: return false;
+			default: return false;
 		}
 		return evaluation;
 	}
@@ -154,17 +155,21 @@ public class VolumeConverter {
 		boolean evaluation = false;
 		
 		//Determine Target Volume Unit
-		//switch (TargetTempUnitDropdown) {
-		//case FAHRENHEIT : evaluation = convertFahrenheitToFahrenheit(InputTempNumText, StudentTempResponseText);
-		//break;
-		//case CELSIUS : evaluation = convertFahrenheitToCelsius(InputTempNumText, StudentTempResponseText);
-		//break;
-		//case KELVIN : evaluation = convertFahrenheitToKelvin(InputTempNumText, StudentTempResponseText);
-		//break;
-		//case RANKINE : evaluation = convertFahrenheitToRankine(InputTempNumText, StudentTempResponseText);
-		//break;
-		//default: return false;
-		//}
+		switch (TargetTempUnitDropdown) {
+			case LITERS : evaluation = CubicFeet.convertCubicFeetToLiters(InputTempNumText, StudentTempResponseText);
+					break;
+			case TABLESPOONS : evaluation = CubicFeet.convertCubicFeetToTablespoons(InputTempNumText, StudentTempResponseText);
+					break;
+			case CUBIC_INCHES : evaluation = CubicFeet.convertCubicFeetToCubicInches(InputTempNumText, StudentTempResponseText);
+					break;
+			case CUPS : evaluation = CubicFeet.convertCubicFeetToCups(InputTempNumText, StudentTempResponseText);
+					break;
+			case CUBIC_FEET : evaluation = CubicFeet.convertCubicFeetToCubicFeet(InputTempNumText, StudentTempResponseText);
+					break;
+			case GALLONS : evaluation = CubicFeet.convertCubicFeetToGallons(InputTempNumText, StudentTempResponseText);
+					break;
+			default: return false;
+		}
 		return evaluation;
 	}
 	

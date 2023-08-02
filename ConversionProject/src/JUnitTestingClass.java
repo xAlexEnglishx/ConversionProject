@@ -11,6 +11,7 @@ import Temperatures.Celsius;
 import Temperatures.Fahrenheit;
 import Temperatures.Kelvin;
 import Temperatures.Rankine;
+import Volumes.CubicFeet;
 import Volumes.CubicInches;
 import Volumes.Cups;
 import Volumes.Liters;
@@ -460,5 +461,66 @@ public class JUnitTestingClass {
 	@Test
 	public void testFailureConvertCupsToGallons() {
 		assertEquals(false, Cups.convertCupsToGallons("1", "0.6"));
+	}
+	
+	//Cubic Feet
+	@Test
+	public void testSuccessConvertCubicFeetToCubicFeet() {
+		assertEquals(true, CubicFeet.convertCubicFeetToCubicFeet("1", "1"));
+	}
+	
+	@Test
+	public void testFailureConvertCubicFeetToCubicFeet() {
+		assertEquals(false, CubicFeet.convertCubicFeetToCubicFeet("1", "0.6"));
+	}
+	
+	@Test
+	public void testSuccessConvertCubicFeetToLiters() {
+		assertEquals(true, CubicFeet.convertCubicFeetToLiters("1", "28.3"));
+	}
+	
+	@Test
+	public void testFailureConvertCubicFeetToLiters() {
+		assertEquals(false, CubicFeet.convertCubicFeetToLiters("1", "28.4"));
+	}
+	
+	@Test
+	public void testSuccessConvertCubicFeetToTablespoons() {
+		assertEquals(true, CubicFeet.convertCubicFeetToTablespoons("1", "1915"));
+	}
+	
+	@Test
+	public void testFailureConvertCubicFeetToTablespoons() {
+		assertEquals(false, CubicFeet.convertCubicFeetToTablespoons("1", "28.4"));
+	}
+	
+	@Test
+	public void testSuccessConvertCubicFeetToCubicInches() {
+		assertEquals(true, CubicFeet.convertCubicFeetToCubicInches("1", "1728"));
+	}
+	
+	@Test
+	public void testFailureConvertCubicFeetToCubicInches() {
+		assertEquals(false, CubicFeet.convertCubicFeetToCubicInches("1", "28.4"));
+	}
+	
+	@Test
+	public void testSuccessConvertCubicFeetToCups() {
+		assertEquals(true, CubicFeet.convertCubicFeetToCups("1", "119.7"));
+	}
+	
+	@Test
+	public void testFailureConvertCubicFeetToCups() {
+		assertEquals(false, CubicFeet.convertCubicFeetToCups("1", "28.4"));
+	}
+	
+	@Test
+	public void testSuccessConvertCubicFeetToGallons() {
+		assertEquals(true, CubicFeet.convertCubicFeetToGallons("1", "7.4"));
+	}
+	
+	@Test
+	public void testFailureConvertCubicFeetToGallons() {
+		assertEquals(false, CubicFeet.convertCubicFeetToGallons("1", "28.4"));
 	}
 }
