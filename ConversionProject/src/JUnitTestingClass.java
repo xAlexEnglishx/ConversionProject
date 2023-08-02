@@ -14,6 +14,7 @@ import Temperatures.Rankine;
 import Volumes.CubicFeet;
 import Volumes.CubicInches;
 import Volumes.Cups;
+import Volumes.Gallons;
 import Volumes.Liters;
 import Volumes.Tablespoons;
 
@@ -522,5 +523,66 @@ public class JUnitTestingClass {
 	@Test
 	public void testFailureConvertCubicFeetToGallons() {
 		assertEquals(false, CubicFeet.convertCubicFeetToGallons("1", "28.4"));
+	}
+	
+	//Gallons
+	@Test
+	public void testSuccessConvertGallonsToGallons() {
+		assertEquals(true, Gallons.convertGallonsToGallons("1", "1"));
+	}
+	
+	@Test
+	public void testFailureConvertGallonsToGallons() {
+		assertEquals(false, Gallons.convertGallonsToGallons("1", "0.6"));
+	}
+	
+	@Test
+	public void testSuccessConvertGallonsToLiters() {
+		assertEquals(true, Gallons.convertGallonsToLiters("1", "3.7"));
+	}
+	
+	@Test
+	public void testFailureConvertGallonsToLiters() {
+		assertEquals(false, Gallons.convertGallonsToLiters("1", "0.6"));
+	}
+	
+	@Test
+	public void testSuccessConvertGallonsToTablespoons() {
+		assertEquals(true, Gallons.convertGallonsToTablespoons("1", "256"));
+	}
+	
+	@Test
+	public void testFailureConvertGallonsToTablespoons() {
+		assertEquals(false, Gallons.convertGallonsToTablespoons("1", "0.6"));
+	}
+	
+	@Test
+	public void testSuccessConvertGallonsToCubicInches() {
+		assertEquals(true, Gallons.convertGallonsToCubicInches("1", "231"));
+	}
+	
+	@Test
+	public void testFailureConvertGallonsToCubicInches() {
+		assertEquals(false, Gallons.convertGallonsToCubicInches("1", "0.6"));
+	}
+	
+	@Test
+	public void testSuccessConvertGallonsToCubicFeet() {
+		assertEquals(true, Gallons.convertGallonsToCubicFeet("1", "0.1"));
+	}
+	
+	@Test
+	public void testFailureConvertGallonsToCubicFeet() {
+		assertEquals(false, Gallons.convertGallonsToCubicFeet("1", "0.6"));
+	}
+	
+	@Test
+	public void testSuccessConvertGallonsToCups() {
+		assertEquals(true, Gallons.convertGallonsToCups("1", "16"));
+	}
+	
+	@Test
+	public void testFailureConvertGallonsToCups() {
+		assertEquals(false, Gallons.convertGallonsToCups("1", "0.6"));
 	}
 }
