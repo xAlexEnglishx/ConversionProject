@@ -19,28 +19,6 @@ import Volumes.Liters;
 import Volumes.Tablespoons;
 
 public class JUnitTestingClass {
-//	@Test
-//	public void test_JUnit() {
-//		System.out.println("testtttinggguh");
-//		String s = "lets test";
-//		assertEquals("lets test", s);
-//	}
-//	
-//	@Test
-//	public void testCtoF() {
-////		final JTextField textCelsius;
-////		public static final JTextField textFahrenheit;
-//		TempConverter tc = new TempConverter();
-//		assertEquals("39.2", tc.convertCtoF(4));
-//	}
-//	
-//	@Test
-//	public void testFtoC() {
-////		final JTextField textCelsius;
-////		public static final JTextField textFahrenheit;
-//		TempConverter tc = new TempConverter();
-//		assertEquals("-15.6", tc.convertFtoC(4));
-//	}
 	
 	//Test fahrenheit
 	@Test

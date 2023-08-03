@@ -16,9 +16,10 @@ public class Kelvin {
 		double kelvin = Double.parseDouble(InputTempNumText);
 		
 		if (String.valueOf(df.format(kelvin)).equals(String.valueOf(df.format(studentTempResponse)))) {
-			System.out.println("MADE IT");
+			System.out.println("Correct Calculation");
 			return true;
 		} else {
+			System.out.println("Incorrect Calculation");
 			return false;
 		}
 	}
@@ -28,13 +29,13 @@ public class Kelvin {
 		df.setRoundingMode(RoundingMode.DOWN);
 		double studentTempResponse = Double.parseDouble(StudentTempResponseText);
 		double kelvin = Double.parseDouble(InputTempNumText);
-//			(0K − 273.15) × 9/5 + 32
 		double fahrenheit = (kelvin - 273.15) * 9/5 + 32;
 		
 		if (String.valueOf(df.format(fahrenheit)).equals(String.valueOf(df.format(studentTempResponse)))) {
-			System.out.println("MADE IT");
+			System.out.println("Correct Calculation");
 			return true;
 		} else {
+			System.out.println("Incorrect Calculation");
 			return false;
 		}
 	}
@@ -44,13 +45,13 @@ public class Kelvin {
 		df.setRoundingMode(RoundingMode.DOWN);
 		double studentTempResponse = Double.parseDouble(StudentTempResponseText);
 		double kelvin = Double.parseDouble(InputTempNumText);
-//			0K − 273.15 
 		double celsius = kelvin - 273.15;
 		
 		if (String.valueOf(df.format(celsius)).equals(String.valueOf(df.format(studentTempResponse)))) {
-			System.out.println("MADE IT");
+			System.out.println("Correct Calculation");
 			return true;
 		} else {
+			System.out.println("Incorrect Calculation");
 			return false;
 		}
 	}
@@ -60,13 +61,13 @@ public class Kelvin {
 		df.setRoundingMode(RoundingMode.DOWN);
 		double studentTempResponse = Double.parseDouble(StudentTempResponseText);
 		double kelvin = Double.parseDouble(InputTempNumText);
-//			K * 9/5
 		double rankine = kelvin * 9/5;
 		
 		if (String.valueOf(df.format(rankine)).equals(String.valueOf(df.format(studentTempResponse)))) {
-			System.out.println("MADE IT");
+			System.out.println("Correct Calculation");
 			return true;
 		} else {
+			System.out.println("Incorrect Calculation");
 			return false;
 		}
 	}

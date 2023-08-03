@@ -8,20 +8,6 @@ import java.awt.*;
 
 public class CubicFeet {
 	
-//	LITERS,
-//	TABLESPOONS,
-//	CUBIC_INCHES,
-//	CUPS,
-//	CUBIC_FEET,
-//	GALLONS
-	
-//	Liters
-//	Tablespoons
-//	CubicInches
-//	Cups
-//	CubicFeet
-//	Gallons
-	
 	//Cubic Feet conversions
 	public static boolean convertCubicFeetToCubicFeet (String InputTempNumText, String StudentTempResponseText) {
 		DecimalFormat df = new DecimalFormat("#.0");
@@ -30,9 +16,10 @@ public class CubicFeet {
 		double cubicFeet = Double.parseDouble(InputTempNumText);
 		
 		if (String.valueOf(df.format(cubicFeet)).equals(String.valueOf(df.format(studentTempResponse)))) {
-			System.out.println("MADE IT");
+			System.out.println("Correct Calculation");
 			return true;
 		} else {
+			System.out.println("Incorrect Calculation");
 			return false;
 		}
 	}
@@ -45,9 +32,10 @@ public class CubicFeet {
 		double liters = cubicFeet * 28.317;
 		
 		if (String.valueOf(df.format(liters)).equals(String.valueOf(df.format(studentTempResponse)))) {
-			System.out.println("MADE IT");
+			System.out.println("Correct Calculation");
 			return true;
 		} else {
+			System.out.println("Incorrect Calculation");
 			return false;
 		}
 	}
@@ -60,9 +48,10 @@ public class CubicFeet {
 		double tablespoons = cubicFeet * 1915;
 		
 		if (String.valueOf(df.format(tablespoons)).equals(String.valueOf(df.format(studentTempResponse)))) {
-			System.out.println("MADE IT");
+			System.out.println("Correct Calculation");
 			return true;
 		} else {
+			System.out.println("Incorrect Calculation");
 			return false;
 		}
 	}
@@ -75,9 +64,10 @@ public class CubicFeet {
 		double cubicInches = cubicFeet * 1728;
 		
 		if (String.valueOf(df.format(cubicInches)).equals(String.valueOf(df.format(studentTempResponse)))) {
-			System.out.println("MADE IT");
+			System.out.println("Correct Calculation");
 			return true;
 		} else {
+			System.out.println("Incorrect Calculation");
 			return false;
 		}
 	}
@@ -90,9 +80,10 @@ public class CubicFeet {
 		double cups = cubicFeet * 119.7;
 		
 		if (String.valueOf(df.format(cups)).equals(String.valueOf(df.format(studentTempResponse)))) {
-			System.out.println("MADE IT");
+			System.out.println("Correct Calculation");
 			return true;
 		} else {
+			System.out.println("Incorrect Calculation");
 			return false;
 		}
 	}
@@ -105,9 +96,10 @@ public class CubicFeet {
 		double gallons = cubicFeet * 7.481;
 		
 		if (String.valueOf(df.format(gallons)).equals(String.valueOf(df.format(studentTempResponse)))) {
-			System.out.println("MADE IT");
+			System.out.println("Correct Calculation");
 			return true;
 		} else {
+			System.out.println("Incorrect Calculation");
 			return false;
 		}
 	}

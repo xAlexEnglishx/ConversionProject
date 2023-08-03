@@ -14,9 +14,6 @@ import Volumes.Tablespoons;
 
 public class VolumeConverter {
 	
-	//take 2 inputs, evaluate the first then run into switch based on second
-	
-	
 	public static boolean evaluateVolConversion(String InputTempNumText, String StudentTempResponseText, 
 											VolumeEnum InputTempUnitDropdown, VolumeEnum TargetTempUnitDropdown) {
 		System.out.println("test789" + " , " 
@@ -27,12 +24,6 @@ public class VolumeConverter {
 		
 		boolean evaluation = false;
 		
-//		LITERS,
-//		TABLESPOONS,
-//		CUBIC_INCHES,
-//		CUPS,
-//		CUBIC_FEET,
-//		GALLONS
 		//Determine Input Volume Unit
 		switch (InputTempUnitDropdown) {
 	        case LITERS : evaluation = convertFromLiters(InputTempNumText, StudentTempResponseText, 

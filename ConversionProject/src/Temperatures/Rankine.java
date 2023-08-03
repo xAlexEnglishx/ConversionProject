@@ -16,9 +16,10 @@ public class Rankine {
 		double rankine = Double.parseDouble(InputTempNumText);
 		
 		if (String.valueOf(df.format(rankine)).equals(String.valueOf(df.format(studentTempResponse)))) {
-			System.out.println("MADE IT");
+			System.out.println("Correct Calculation");
 			return true;
 		} else {
+			System.out.println("Incorrect Calculation");
 			return false;
 		}
 	}
@@ -28,13 +29,13 @@ public class Rankine {
 		df.setRoundingMode(RoundingMode.DOWN);
 		double studentTempResponse = Double.parseDouble(StudentTempResponseText);
 		double rankine = Double.parseDouble(InputTempNumText);
-//			1°R − 459.67
 		double fahrenheit = rankine - 459.67;
 		
 		if (String.valueOf(df.format(fahrenheit)).equals(String.valueOf(df.format(studentTempResponse)))) {
-			System.out.println("MADE IT");
+			System.out.println("Correct Calculation");
 			return true;
 		} else {
+			System.out.println("Incorrect Calculation");
 			return false;
 		}
 	}
@@ -44,13 +45,13 @@ public class Rankine {
 		df.setRoundingMode(RoundingMode.DOWN);
 		double studentTempResponse = Double.parseDouble(StudentTempResponseText);
 		double rankine = Double.parseDouble(InputTempNumText);
-//			(1°R − 491.67) × 5/9
 		double celsius = (rankine - 491.67) * 5/9;
 		
 		if (String.valueOf(df.format(celsius)).equals(String.valueOf(df.format(studentTempResponse)))) {
-			System.out.println("MADE IT");
+			System.out.println("Correct Calculation");
 			return true;
 		} else {
+			System.out.println("Incorrect Calculation");
 			return false;
 		}
 	}
@@ -60,13 +61,13 @@ public class Rankine {
 		df.setRoundingMode(RoundingMode.DOWN);
 		double studentTempResponse = Double.parseDouble(StudentTempResponseText);
 		double rankine = Double.parseDouble(InputTempNumText);
-//			1°R × 5/9
 		double kelvin = rankine * 5/9;
 		
 		if (String.valueOf(df.format(kelvin)).equals(String.valueOf(df.format(studentTempResponse)))) {
-			System.out.println("MADE IT");
+			System.out.println("Correct Calculation");
 			return true;
 		} else {
+			System.out.println("Incorrect Calculation");
 			return false;
 		}
 	}

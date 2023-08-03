@@ -7,12 +7,6 @@ public class Main {
 
 	//Declare the GUI elements
 	public static JFrame frmMain;
-	public static JLabel lblCelsius;
-	public static JTextField textCelsius;
-	public static JLabel lblFahrenheit;
-	public static JTextField textFahrenheit;
-	public static JButton btnCalculateCtoF;
-	public static JButton btnCalculateFtoC;
 	
 	//Temperature variables
 	public static JLabel direction;
@@ -39,77 +33,19 @@ public class Main {
 	public static JLabel VolOutput;
 	public static JButton btnCalculateVolConversion;
 	
-	
-	
 	public static void main(String[] args) {
-		
-		TempConverter tc = new TempConverter();
 		
 		//Set up the frame
 		frmMain = new JFrame("Conversion Tool");
-//		frmMain.setSize(150, 200);
 		frmMain.setSize(750, 750);
 		frmMain.setLocation(100, 100);
 		frmMain.setLayout(new FlowLayout());
-		
-		//Create test GUI Elements
-		lblCelsius = new JLabel("Celsius:");
-		textCelsius = new JTextField(10); // 10 is num of columns
-		lblFahrenheit = new JLabel("Fahrenheit:");
-		textFahrenheit = new JTextField(10);
-		btnCalculateCtoF = new JButton("Convert C to F");
-		
-		
-		//Add ActionListener
-		btnCalculateCtoF.addActionListener
-		(
-			new ActionListener()
-			{
-				public void actionPerformed(ActionEvent e)
-				{
-					System.out.println("test1");
-					textFahrenheit.setText(tc.convertCtoF(Float.parseFloat((textCelsius.getText()))));
-//					//Convert C to F
-//					String cText = textCelsius.getText();
-//					double c = Double.parseDouble(cText);
-//					double f = (c * 9 / 5) + 32;
-//					textFahrenheit.setText(String.valueOf(f));
-				}
-			}
-		);
-		
-		
-		btnCalculateFtoC = new JButton("Convert F to C");
-		//Add ActionListener
-		btnCalculateFtoC.addActionListener
-		(
-			new ActionListener()
-			{
-				public void actionPerformed(ActionEvent e)
-				{
-					textCelsius.setText(tc.convertFtoC(Float.parseFloat((textFahrenheit.getText()))));
-//					tc.convertFtoC(textCelsius, textFahrenheit);
-					
-//					//Convert F to C
-//					String fText = textFahrenheit.getText();
-//					double f = Double.parseDouble(fText);
-//					double c = (f - 32) * 5 / 9;
-//					textCelsius.setText(String.valueOf(c));
-				}
-			}
-		);
-		
-		
-		
-	
-		
 		
 		//Create temperature GUI Elements
 		direction = new JLabel("Inputs must be numbers only up to the tenth decimal place.");
 		InputTempNumLabel = new JLabel("Input Numerical Value:");
 		InputTempNumText = new JTextField(10);
 		InputTempUnitLabel = new JLabel("Input Unit of Measure:");
-//		String[] temperatureStrings = { "Fahrenheit", "Celsius", "Kelvin", "Rankine"};
 		TemperatureEnum[] temperatureUnits = { 
 				TemperatureEnum.FAHRENHEIT, 
 				TemperatureEnum.CELSIUS,
@@ -135,8 +71,7 @@ public class Main {
 			{
 				public void actionPerformed(ActionEvent e)
 				{
-					//Verfiy up to tenths place, anything else reveals invalid before calculation
-					//validate inputs
+					//Validate inputs
 					if (TempConverter.verifyInputs(InputTempNumText.getText(), StudentTempResponseText.getText())) {
 						//Evaluate conversion
 						boolean conversionEvaluation = TempConverter.evaluateTempConversion(
@@ -144,7 +79,6 @@ public class Main {
 								StudentTempResponseText.getText(),
 								(TemperatureEnum)InputTempUnitDropdown.getSelectedItem(), 
 								(TemperatureEnum)TargetTempUnitDropdown.getSelectedItem());
-						System.out.println("test1234" + conversionEvaluation);
 						
 						if (conversionEvaluation == true) {
 							TempOutput.setText("Output: correct");
@@ -160,15 +94,10 @@ public class Main {
 		);
 		
 		
-		
-		
-		
 		//Create volume GUI Elements
-//		direction = new JLabel("Inputs must be numbers only up to the tenth decimal place.");
 		InputVolNumLabel = new JLabel("Input Numerical Value:");
 		InputVolNumText = new JTextField(10);
 		InputVolUnitLabel = new JLabel("Input Unit of Measure:");
-//				String[] temperatureStrings = { "Fahrenheit", "Celsius", "Kelvin", "Rankine"};
 		VolumeEnum[] volumeUnits = { 
 				VolumeEnum.LITERS,
 				VolumeEnum.TABLESPOONS,
@@ -196,8 +125,7 @@ public class Main {
 			{
 				public void actionPerformed(ActionEvent e)
 				{
-					//Verfiy up to tenths place, anything else reveals invalid before calculation
-					//validate inputs
+					//Validate inputs
 					System.out.println("Volume");
 					if (VolumeConverter.verifyInputs(InputVolNumText.getText(), StudentVolResponseText.getText())) {
 						//Evaluate conversion
@@ -206,7 +134,6 @@ public class Main {
 								StudentVolResponseText.getText(),
 								(VolumeEnum)InputVolUnitDropdown.getSelectedItem(), 
 								(VolumeEnum)TargetVolUnitDropdown.getSelectedItem());
-						System.out.println("test1234" + conversionEvaluation);
 						
 						if (conversionEvaluation == true) {
 							VolOutput.setText("Output: correct");
@@ -220,9 +147,6 @@ public class Main {
 				}
 			}
 		);
-		
-		
-		
 		
 		
 		//Add the Temperature GUI Elements to the frame

@@ -16,9 +16,10 @@ public class Fahrenheit {
 		double fahrenheit = Double.parseDouble(InputTempNumText);
 		
 		if (String.valueOf(df.format(fahrenheit)).equals(String.valueOf(df.format(studentTempResponse)))) {
-			System.out.println("MADE IT");
+			System.out.println("Correct Calculation");
 			return true;
 		} else {
+			System.out.println("Incorrect Calculation");
 			return false;
 		}
 	}
@@ -31,9 +32,10 @@ public class Fahrenheit {
 		double celsius = (fahrenheit - 32) * 5 / 9;
 		
 		if (String.valueOf(df.format(celsius)).equals(String.valueOf(df.format(studentTempResponse)))) {
-			System.out.println("MADE IT");
+			System.out.println("Correct Calculation");
 			return true;
 		} else {
+			System.out.println("Incorrect Calculation");
 			return false;
 		}
 	}
@@ -43,13 +45,13 @@ public class Fahrenheit {
 		df.setRoundingMode(RoundingMode.DOWN);
 		double studentTempResponse = Double.parseDouble(StudentTempResponseText);
 		double fahrenheit = Double.parseDouble(InputTempNumText);
-		//273.15 + ((F - 32.0) * (5.0/9.0))
 		double kelvin = 273.15 + ((fahrenheit - 32.0) * (5.0/9.0));
 		
 		if (String.valueOf(df.format(kelvin)).equals(String.valueOf(df.format(studentTempResponse)))) {
-			System.out.println("MADE IT");
+			System.out.println("Correct Calculation");
 			return true;
 		} else {
+			System.out.println("Incorrect Calculation");
 			return false;
 		}
 	}
@@ -59,13 +61,13 @@ public class Fahrenheit {
 		df.setRoundingMode(RoundingMode.DOWN);
 		double studentTempResponse = Double.parseDouble(StudentTempResponseText);
 		double fahrenheit = Double.parseDouble(InputTempNumText);
-		//32°F + 459.67
 		double rankine = fahrenheit + 459.67;
 		
 		if (String.valueOf(df.format(rankine)).equals(String.valueOf(df.format(studentTempResponse)))) {
-			System.out.println("MADE IT");
+			System.out.println("Correct Calculation");
 			return true;
 		} else {
+			System.out.println("Incorrect Calculation");
 			return false;
 		}
 	}

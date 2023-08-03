@@ -13,16 +13,8 @@ import java.awt.*;
 
 public class TempConverter {
 	
-	//take 2 inputs, evaluate the first then run into switch based on second
-	
-	
 	public static boolean evaluateTempConversion(String InputTempNumText, String StudentTempResponseText, 
 										TemperatureEnum InputTempUnitDropdown, TemperatureEnum TargetTempUnitDropdown) {
-		System.out.println("test789" + " , " 
-				+ InputTempNumText + " , " 
-				+ StudentTempResponseText + " , " 
-				+ InputTempUnitDropdown + " , " 
-				+ TargetTempUnitDropdown);
 		
 		boolean evaluation = false;
 		
@@ -122,15 +114,6 @@ public class TempConverter {
 		return evaluation;
 	}
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	public static boolean verifyInputs(String InputTempNumText, String StudentTempResponseText) {
 		boolean VertifyInputTempNumText = Pattern.matches("^-?\\d+(\\.\\d{1,1})?$", InputTempNumText);
 		boolean VerifyStudentTempResponseText = Pattern.matches("^-?\\d+(\\.\\d{1,1})?$", StudentTempResponseText);
@@ -140,29 +123,5 @@ public class TempConverter {
 			return false;
 		}
 	}
-	
-	
-	
 
-	public String convertCtoF (double textCelsius) {
-		//Convert C to F
-//		String cText = textCelsius.getText();
-//		double textCelsius = Double.parseDouble(textCelsius);
-		System.out.println("test2");
-		double f = (textCelsius * 9 / 5) + 32;
-		DecimalFormat df = new DecimalFormat("#.#");
-		return String.valueOf(df.format(f));
-//		textFahrenheit.setText(String.valueOf(f));
-	}
-	
-	public String convertFtoC (double textFahrenheit) {
-		//Convert F to C
-//		String fText = textFahrenheit.getText();
-//		double f = Double.parseDouble(fText);
-		double c = (textFahrenheit - 32) * 5 / 9;
-		DecimalFormat df = new DecimalFormat("#.#");
-		return String.valueOf(df.format(c));
-//		textCelsius.setText(String.valueOf(c));
-	}
-	
 }
