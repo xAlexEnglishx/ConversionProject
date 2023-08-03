@@ -123,5 +123,54 @@ public class TempConverter {
 			return false;
 		}
 	}
+	
+//	zero kelvins, equals −273.15 degrees Celsius, or -459.67 Fahrenheit, 0 rankine
+	public static boolean isPastAbsoluteZero(String InputTempNumText, String StudentTempResponseText, 
+											TemperatureEnum InputTempUnitDropdown, TemperatureEnum TargetTempUnitDropdown) {
+		DecimalFormat df = new DecimalFormat("#.0");
+		df.setRoundingMode(RoundingMode.DOWN);
+		boolean evaluation = false;
+		
+		//Determine Past Absolute Zero
+		switch (InputTempUnitDropdown) {
+	        case FAHRENHEIT : if (Double.parseDouble(df.format(Double.parseDouble(InputTempNumText))) < -459.67) {
+						        	evaluation = true;
+						        }
+	                 break;
+	        case CELSIUS : if (Double.parseDouble(df.format(Double.parseDouble(InputTempNumText))) < -273.15) {
+					        	evaluation = true;
+					        }
+	                 break;
+	        case KELVIN : if (Double.parseDouble(df.format(Double.parseDouble(InputTempNumText))) < -0) {
+					        	evaluation = true;
+					        }
+	                 break;
+	        case RANKINE : if (Double.parseDouble(df.format(Double.parseDouble(InputTempNumText))) < -0) {
+					        	evaluation = true;
+					        }
+	                 break;
+	        default: return false;
+		}
+		switch (TargetTempUnitDropdown) {
+	        case FAHRENHEIT : if (Double.parseDouble(df.format(Double.parseDouble(StudentTempResponseText))) < -459.67) {
+						        	evaluation = true;
+						        }
+	                 break;
+	        case CELSIUS : if (Double.parseDouble(df.format(Double.parseDouble(StudentTempResponseText))) < -273.15) {
+					        	evaluation = true;
+					        }
+	                 break;
+	        case KELVIN : if (Double.parseDouble(df.format(Double.parseDouble(StudentTempResponseText))) < -0) {
+					        	evaluation = true;
+					        }
+	                 break;
+	        case RANKINE : if (Double.parseDouble(df.format(Double.parseDouble(StudentTempResponseText))) < -0) {
+					        	evaluation = true;
+					        }
+	                 break;
+	        default: return false;
+		}
+		return evaluation;
+	}
 
 }

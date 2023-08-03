@@ -72,18 +72,31 @@ public class Main {
 				public void actionPerformed(ActionEvent e)
 				{
 					//Validate inputs
+					boolean isPastAbsoluteZero = false;
+					
+					if (TempConverter.isPastAbsoluteZero(InputTempNumText.getText(), StudentTempResponseText.getText(),
+							(TemperatureEnum)InputTempUnitDropdown.getSelectedItem(), 
+							(TemperatureEnum)TargetTempUnitDropdown.getSelectedItem())) {
+						isPastAbsoluteZero = true;
+					}
+					
 					if (TempConverter.verifyInputs(InputTempNumText.getText(), StudentTempResponseText.getText())) {
-						//Evaluate conversion
-						boolean conversionEvaluation = TempConverter.evaluateTempConversion(
-								InputTempNumText.getText(), 
-								StudentTempResponseText.getText(),
-								(TemperatureEnum)InputTempUnitDropdown.getSelectedItem(), 
-								(TemperatureEnum)TargetTempUnitDropdown.getSelectedItem());
-						
-						if (conversionEvaluation == true) {
-							TempOutput.setText("Output: correct");
+						if (isPastAbsoluteZero) {
+							System.out.println("Below Absolute Value");
+							TempOutput.setText("Output: invalid, input below Absolute Value");
 						} else {
-							TempOutput.setText("Output: incorrect");
+							//Evaluate conversion
+							boolean conversionEvaluation = TempConverter.evaluateTempConversion(
+									InputTempNumText.getText(), 
+									StudentTempResponseText.getText(),
+									(TemperatureEnum)InputTempUnitDropdown.getSelectedItem(), 
+									(TemperatureEnum)TargetTempUnitDropdown.getSelectedItem());
+							
+							if (conversionEvaluation == true) {
+								TempOutput.setText("Output: correct");
+							} else {
+								TempOutput.setText("Output: incorrect");
+							}
 						}
 					} else {
 						System.out.println("Invalid entry");
