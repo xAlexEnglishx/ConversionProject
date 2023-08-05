@@ -10,6 +10,7 @@ public class Main {
 	
 	//Temperature variables
 	public static JLabel direction;
+	public static JLabel tempDirection;
 	public static JLabel InputTempNumLabel;
 	public static JTextField InputTempNumText;
 	public static JLabel InputTempUnitLabel;
@@ -20,6 +21,9 @@ public class Main {
 	public static JTextField StudentTempResponseText;
 	public static JLabel TempOutput;
 	public static JButton btnCalculateTempConversion;
+	
+	public static JLabel lineBreak1;
+	public static JLabel lineBreak2;
 	
 	//Volume variables
 	public static JLabel InputVolNumLabel;
@@ -35,14 +39,9 @@ public class Main {
 	
 	public static void main(String[] args) {
 		
-		//Set up the frame
-		frmMain = new JFrame("Conversion Tool");
-		frmMain.setSize(750, 750);
-		frmMain.setLocation(100, 100);
-		frmMain.setLayout(new FlowLayout());
-		
 		//Create temperature GUI Elements
 		direction = new JLabel("Inputs must be numbers only up to the tenth decimal place.");
+		tempDirection = new JLabel("Temperature inputs must not be lower than absolute zero.");
 		InputTempNumLabel = new JLabel("Input Numerical Value:");
 		InputTempNumText = new JTextField(10);
 		InputTempUnitLabel = new JLabel("Input Unit of Measure:");
@@ -162,34 +161,94 @@ public class Main {
 		);
 		
 		
+		//Set up frame
+		frmMain = new JFrame("Conversion Tool");
+		frmMain.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmMain.setSize(800, 750);
+		frmMain.setLocation(100, 100);
+		frmMain.setLocationRelativeTo(null);
+		frmMain.setLayout(null);
+		
+		JPanel directionPanel = new JPanel();
+		JPanel tempDirectionPanel = new JPanel();
+
+		JPanel tempInputPanel = new JPanel();
+		JPanel tempTargetPanel = new JPanel();
+		JPanel tempOutputPanel = new JPanel();
+
+		JPanel volInputPanel = new JPanel();
+		JPanel volTargetPanel = new JPanel();
+		JPanel volOutputPanel = new JPanel();
+		
+		JPanel linePanel1 = new JPanel();
+		JPanel linePanel2 = new JPanel();
+		lineBreak1 = new JLabel("----------------------------------------------------------------------------------------");
+		lineBreak2 = new JLabel("----------------------------------------------------------------------------------------");
+		
+		directionPanel.setBounds(0, 0, 800, 20);
+		tempDirectionPanel.setBounds(0, 20, 800, 20);
+		
+		linePanel1.setBounds(0, 50, 800, 50);
+		
+		tempInputPanel.setBounds(0, 100, 800, 50);
+		tempTargetPanel.setBounds(0, 150, 800, 50);
+		tempOutputPanel.setBounds(0, 200, 800, 50);
+		
+		linePanel2.setBounds(0, 250, 800, 50);
+		
+		volInputPanel.setBounds(0, 300, 800, 50);
+		volTargetPanel.setBounds(0, 350, 800, 50);
+		volOutputPanel.setBounds(0, 400, 800, 50);
+		
+		
+		//Add the directions to the frame
+		directionPanel.add(direction);
+		tempDirectionPanel.add(tempDirection);
+		
+		linePanel1.add(lineBreak1);
+		
 		//Add the Temperature GUI Elements to the frame
-		frmMain.add(direction);
-		frmMain.add(InputTempNumLabel);
-		frmMain.add(InputTempNumText);
-		frmMain.add(InputTempUnitLabel);
-		frmMain.add(InputTempUnitDropdown);
-		frmMain.add(TargetTempUnitLabel);
-		frmMain.add(TargetTempUnitDropdown);
-		frmMain.add(StudentTempResponseLabel);
-		frmMain.add(StudentTempResponseText);
-		frmMain.add(TempOutput);
-		frmMain.add(btnCalculateTempConversion);
+		tempInputPanel.add(InputTempUnitLabel);
+		tempInputPanel.add(InputTempUnitDropdown);
+		tempInputPanel.add(InputTempNumLabel);
+		tempInputPanel.add(InputTempNumText);
+		tempTargetPanel.add(TargetTempUnitLabel);
+		tempTargetPanel.add(TargetTempUnitDropdown);
+		tempTargetPanel.add(StudentTempResponseLabel);
+		tempTargetPanel.add(StudentTempResponseText);
+		tempOutputPanel.add(TempOutput);
+		tempOutputPanel.add(btnCalculateTempConversion);
+		
+		linePanel2.add(lineBreak2);
 		
 		//Add the volume GUI Elements to the frame
-		frmMain.add(InputVolNumLabel);
-		frmMain.add(InputVolNumText);
-		frmMain.add(InputVolUnitLabel);
-		frmMain.add(InputVolUnitDropdown);
-		frmMain.add(TargetVolUnitLabel);
-		frmMain.add(TargetVolUnitDropdown);
-		frmMain.add(StudentVolResponseLabel);
-		frmMain.add(StudentVolResponseText);
-		frmMain.add(VolOutput);
-		frmMain.add(btnCalculateVolConversion);
+		volInputPanel.add(InputVolUnitLabel);
+		volInputPanel.add(InputVolUnitDropdown);
+		volInputPanel.add(InputVolNumLabel);
+		volInputPanel.add(InputVolNumText);
+		volTargetPanel.add(TargetVolUnitLabel);
+		volTargetPanel.add(TargetVolUnitDropdown);
+		volTargetPanel.add(StudentVolResponseLabel);
+		volTargetPanel.add(StudentVolResponseText);
+		volOutputPanel.add(VolOutput);
+		volOutputPanel.add(btnCalculateVolConversion);
 		
-		//Make the frame visible
-		frmMain.setVisible(true);
-		frmMain.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmMain.add(directionPanel);
+		frmMain.add(tempDirectionPanel);
+		
+		frmMain.add(linePanel1);
+		
+		frmMain.add(tempInputPanel);
+		frmMain.add(tempTargetPanel);
+		frmMain.add(tempOutputPanel);
+		
+		frmMain.add(linePanel2);
+		
+		frmMain.add(volInputPanel);
+		frmMain.add(volTargetPanel);
+		frmMain.add(volOutputPanel);
+  
+    	frmMain.setVisible(true);
 		
 	}
 
