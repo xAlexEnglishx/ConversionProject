@@ -20,6 +20,28 @@ import Volumes.Tablespoons;
 
 public class JUnitTestingClass {
 	
+	//Test TempConverter
+	@Test
+	public void testSuccessEvaluateTempConversion() {
+		assertEquals(true, TempConverter.evaluateTempConversion("32", "0", TemperatureEnum.FAHRENHEIT, TemperatureEnum.CELSIUS));
+	}
+	
+	@Test
+	public void testFailureEvaluateTempConversion() {
+		assertEquals(false, TempConverter.evaluateTempConversion("32", "1", TemperatureEnum.FAHRENHEIT, TemperatureEnum.CELSIUS));
+	}
+	
+	//Test VolumeConverter
+	@Test
+	public void testSuccessEvaluateVolumeConversion() {
+		assertEquals(true, VolumeConverter.evaluateVolConversion("1", "67.6", VolumeEnum.LITERS, VolumeEnum.TABLESPOONS));
+	}
+	
+	@Test
+	public void testFailureEvaluateVolumeConversion() {
+		assertEquals(false, VolumeConverter.evaluateVolConversion("1", "67.7", VolumeEnum.LITERS, VolumeEnum.TABLESPOONS));
+	}
+	
 	//Test fahrenheit
 	@Test
 	public void testSuccessConvertFahrenheitToFahrenheit() {

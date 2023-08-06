@@ -124,7 +124,6 @@ public class TempConverter {
 		}
 	}
 	
-//	zero kelvins, equals −273.15 degrees Celsius, or -459.67 Fahrenheit, 0 rankine
 	public static boolean isPastAbsoluteZero(String InputTempNumText, String StudentTempResponseText, 
 											TemperatureEnum InputTempUnitDropdown, TemperatureEnum TargetTempUnitDropdown) {
 		DecimalFormat df = new DecimalFormat("#.0");

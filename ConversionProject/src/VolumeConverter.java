@@ -16,11 +16,6 @@ public class VolumeConverter {
 	
 	public static boolean evaluateVolConversion(String InputTempNumText, String StudentTempResponseText, 
 											VolumeEnum InputTempUnitDropdown, VolumeEnum TargetTempUnitDropdown) {
-		System.out.println("test789" + " , " 
-				+ InputTempNumText + " , " 
-				+ StudentTempResponseText + " , " 
-				+ InputTempUnitDropdown + " , " 
-				+ TargetTempUnitDropdown);
 		
 		boolean evaluation = false;
 		
