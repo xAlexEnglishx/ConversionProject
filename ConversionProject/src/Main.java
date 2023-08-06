@@ -138,7 +138,6 @@ public class Main {
 				public void actionPerformed(ActionEvent e)
 				{
 					//Validate inputs
-					System.out.println("Volume");
 					if (VolumeConverter.verifyInputs(InputVolNumText.getText(), StudentVolResponseText.getText())) {
 						//Evaluate conversion
 						boolean conversionEvaluation = VolumeConverter.evaluateVolConversion(
