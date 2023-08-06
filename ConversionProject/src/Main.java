@@ -81,8 +81,8 @@ public class Main {
 						}
 						
 						if (isPastAbsoluteZero) {
-							System.out.println("Below Absolute Value");
-							TempOutput.setText("Output: invalid, input below Absolute Value");
+							System.out.println("Below Absolute Zero");
+							TempOutput.setText("Output: invalid, input below Absolute Zero");
 						} else {
 							//Evaluate conversion
 							boolean conversionEvaluation = TempConverter.evaluateTempConversion(
