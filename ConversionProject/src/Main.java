@@ -73,13 +73,13 @@ public class Main {
 					//Validate inputs
 					boolean isPastAbsoluteZero = false;
 					
-					if (TempConverter.isPastAbsoluteZero(InputTempNumText.getText(), StudentTempResponseText.getText(),
-							(TemperatureEnum)InputTempUnitDropdown.getSelectedItem(), 
-							(TemperatureEnum)TargetTempUnitDropdown.getSelectedItem())) {
-						isPastAbsoluteZero = true;
-					}
-					
 					if (TempConverter.verifyInputs(InputTempNumText.getText(), StudentTempResponseText.getText())) {
+						if (TempConverter.isPastAbsoluteZero(InputTempNumText.getText(), StudentTempResponseText.getText(),
+								(TemperatureEnum)InputTempUnitDropdown.getSelectedItem(), 
+								(TemperatureEnum)TargetTempUnitDropdown.getSelectedItem())) {
+							isPastAbsoluteZero = true;
+						}
+						
 						if (isPastAbsoluteZero) {
 							System.out.println("Below Absolute Value");
 							TempOutput.setText("Output: invalid, input below Absolute Value");
