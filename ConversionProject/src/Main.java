@@ -1,4 +1,7 @@
 import javax.swing.*;
+
+import Verification.ConversionVerifier;
+
 import java.awt.event.*;
 import java.text.DecimalFormat;
 import java.awt.*;
@@ -40,7 +43,7 @@ public class Main {
 	public static void main(String[] args) {
 		
 		//Create temperature GUI Elements
-		direction = new JLabel("Inputs must be numbers only up to the tenth decimal place.");
+		direction = new JLabel("Inputs must be numbers only. They can have up to 15 digits past the decimal point.");
 		tempDirection = new JLabel("Temperature inputs must not be lower than absolute zero.");
 		InputTempNumLabel = new JLabel("Input Numerical Value:");
 		InputTempNumText = new JTextField(10);
@@ -71,16 +74,10 @@ public class Main {
 				public void actionPerformed(ActionEvent e)
 				{
 					//Validate inputs
-					boolean isPastAbsoluteZero = false;
-					
-					if (TempConverter.verifyInputs(InputTempNumText.getText(), StudentTempResponseText.getText())) {
+					if (ConversionVerifier.verifyInputs(InputTempNumText.getText(), StudentTempResponseText.getText())) {
 						if (TempConverter.isPastAbsoluteZero(InputTempNumText.getText(), StudentTempResponseText.getText(),
 								(TemperatureEnum)InputTempUnitDropdown.getSelectedItem(), 
 								(TemperatureEnum)TargetTempUnitDropdown.getSelectedItem())) {
-							isPastAbsoluteZero = true;
-						}
-						
-						if (isPastAbsoluteZero) {
 							System.out.println("Below Absolute Zero");
 							TempOutput.setText("Output: invalid, input below Absolute Zero");
 						} else {
@@ -138,7 +135,7 @@ public class Main {
 				public void actionPerformed(ActionEvent e)
 				{
 					//Validate inputs
-					if (VolumeConverter.verifyInputs(InputVolNumText.getText(), StudentVolResponseText.getText())) {
+					if (ConversionVerifier.verifyInputs(InputVolNumText.getText(), StudentVolResponseText.getText())) {
 						//Evaluate conversion
 						boolean conversionEvaluation = VolumeConverter.evaluateVolConversion(
 								InputVolNumText.getText(), 

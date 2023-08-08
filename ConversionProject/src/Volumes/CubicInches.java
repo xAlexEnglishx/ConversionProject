@@ -1,6 +1,10 @@
 package Volumes;
 import javax.swing.*;
+
+import Verification.ConversionVerifier;
+
 import java.awt.event.*;
+import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.text.DecimalFormat;
 import java.util.regex.Pattern;
@@ -10,98 +14,44 @@ public class CubicInches {
 
 	//Cubic Inches conversions
 	public static boolean convertCubicInchesToCubicInches (String InputTempNumText, String StudentTempResponseText) {
-		DecimalFormat df = new DecimalFormat("#.0");
-		df.setRoundingMode(RoundingMode.DOWN);
-		double studentTempResponse = Double.parseDouble(StudentTempResponseText);
-		double cubicInches = Double.parseDouble(InputTempNumText);
+		BigDecimal cubicInches = new BigDecimal(InputTempNumText);
 		
-		if (String.valueOf(df.format(cubicInches)).equals(String.valueOf(df.format(studentTempResponse)))) {
-			System.out.println("Correct Calculation");
-			return true;
-		} else {
-			System.out.println("Incorrect Calculation");
-			return false;
-		}
+		return ConversionVerifier.verifyEvaluation(cubicInches, new BigDecimal(StudentTempResponseText));
 	}
 	
 	public static boolean convertCubicInchesToLiters (String InputTempNumText, String StudentTempResponseText) {
-		DecimalFormat df = new DecimalFormat("#.0");
-		df.setRoundingMode(RoundingMode.DOWN);
-		double studentTempResponse = Double.parseDouble(StudentTempResponseText);
 		double cubicInches = Double.parseDouble(InputTempNumText);
-		double liters = cubicInches / 61.024;
+		BigDecimal liters = new BigDecimal(cubicInches / 61.024);
 		
-		if (String.valueOf(df.format(liters)).equals(String.valueOf(df.format(studentTempResponse)))) {
-			System.out.println("Correct Calculation");
-			return true;
-		} else {
-			System.out.println("Incorrect Calculation");
-			return false;
-		}
+		return ConversionVerifier.verifyEvaluation(liters, new BigDecimal(StudentTempResponseText));
 	}
 	
 	public static boolean convertCubicInchesToTablespoons (String InputTempNumText, String StudentTempResponseText) {
-		DecimalFormat df = new DecimalFormat("#.0");
-		df.setRoundingMode(RoundingMode.DOWN);
-		double studentTempResponse = Double.parseDouble(StudentTempResponseText);
 		double cubicInches = Double.parseDouble(InputTempNumText);
-		double tablespoons = cubicInches * 1.108;
+		BigDecimal tablespoons = new BigDecimal(cubicInches * 1.108);
 		
-		if (String.valueOf(df.format(tablespoons)).equals(String.valueOf(df.format(studentTempResponse)))) {
-			System.out.println("Correct Calculation");
-			return true;
-		} else {
-			System.out.println("Incorrect Calculation");
-			return false;
-		}
+		return ConversionVerifier.verifyEvaluation(tablespoons, new BigDecimal(StudentTempResponseText));
 	}
 	
 	public static boolean convertCubicInchesToCups (String InputTempNumText, String StudentTempResponseText) {
-		DecimalFormat df = new DecimalFormat("#.0");
-		df.setRoundingMode(RoundingMode.DOWN);
-		double studentTempResponse = Double.parseDouble(StudentTempResponseText);
 		double cubicInches = Double.parseDouble(InputTempNumText);
-		double cups = cubicInches / 14.438;
+		BigDecimal cups = new BigDecimal(cubicInches / 14.438);
 		
-		if (String.valueOf(df.format(cups)).equals(String.valueOf(df.format(studentTempResponse)))) {
-			System.out.println("Correct Calculation");
-			return true;
-		} else {
-			System.out.println("Incorrect Calculation");
-			return false;
-		}
+		return ConversionVerifier.verifyEvaluation(cups, new BigDecimal(StudentTempResponseText));
 	}
 	
 	public static boolean convertCubicInchesToCubicFeet (String InputTempNumText, String StudentTempResponseText) {
-		DecimalFormat df = new DecimalFormat("#.0");
-		df.setRoundingMode(RoundingMode.DOWN);
-		double studentTempResponse = Double.parseDouble(StudentTempResponseText);
 		double cubicInches = Double.parseDouble(InputTempNumText);
-		double cubicFeet = cubicInches / 1728;
+		BigDecimal cubicFeet = new BigDecimal(cubicInches / 1728);
 		
-		if (String.valueOf(df.format(cubicFeet)).equals(String.valueOf(df.format(studentTempResponse)))) {
-			System.out.println("Correct Calculation");
-			return true;
-		} else {
-			System.out.println("Incorrect Calculation");
-			return false;
-		}
+		return ConversionVerifier.verifyEvaluation(cubicFeet, new BigDecimal(StudentTempResponseText));
 	}
 	
 	public static boolean convertCubicInchesToGallons (String InputTempNumText, String StudentTempResponseText) {
-		DecimalFormat df = new DecimalFormat("#.0");
-		df.setRoundingMode(RoundingMode.DOWN);
-		double studentTempResponse = Double.parseDouble(StudentTempResponseText);
 		double cubicInches = Double.parseDouble(InputTempNumText);
-		double gallons = cubicInches / 231;
+		BigDecimal gallons = new BigDecimal(cubicInches / 231);
 		
-		if (String.valueOf(df.format(gallons)).equals(String.valueOf(df.format(studentTempResponse)))) {
-			System.out.println("Correct Calculation");
-			return true;
-		} else {
-			System.out.println("Incorrect Calculation");
-			return false;
-		}
+		return ConversionVerifier.verifyEvaluation(gallons, new BigDecimal(StudentTempResponseText));
 	}
 	
 }

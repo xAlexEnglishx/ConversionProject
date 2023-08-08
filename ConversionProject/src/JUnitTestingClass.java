@@ -75,12 +75,12 @@ public class JUnitTestingClass {
 	
 	@Test
 	public void testSuccessConvertFahrenheitToRankine() {
-		assertEquals(true, Fahrenheit.convertFahrenheitToRankine("32", "491.6"));
+		assertEquals(true, Fahrenheit.convertFahrenheitToRankine("32", "491.7"));
 	}
 	
 	@Test
 	public void testFailureConvertFahrenheitToRankine() {
-		assertEquals(false, Fahrenheit.convertFahrenheitToRankine("32", "491.7"));
+		assertEquals(false, Fahrenheit.convertFahrenheitToRankine("32", "491.6"));
 	}
 	
 	//Test celsius
@@ -116,12 +116,12 @@ public class JUnitTestingClass {
 	
 	@Test
 	public void testSuccessConvertCelsiusToRankine() {
-		assertEquals(true, Celsius.convertCelsiusToRankine("0", "491.6"));
+		assertEquals(true, Celsius.convertCelsiusToRankine("0", "491.7"));
 	}
 	
 	@Test
 	public void testFailureConvertCelsiusToRankine() {
-		assertEquals(false, Celsius.convertCelsiusToRankine("0", "491.5"));
+		assertEquals(false, Celsius.convertCelsiusToRankine("0", "491.6"));
 	}
 	
 	//Test Kelvin
@@ -137,12 +137,12 @@ public class JUnitTestingClass {
 	
 	@Test
 	public void testSuccessConvertKelvinToFahrenheit() {
-		assertEquals(true, Kelvin.convertKelvinToFahrenheit("0", "-459.6"));
+		assertEquals(true, Kelvin.convertKelvinToFahrenheit("0", "-459.7"));
 	}
 	
 	@Test
 	public void testFailureConvertKelvinToFahrenheit() {
-		assertEquals(false, Kelvin.convertKelvinToFahrenheit("0", "-459.5"));
+		assertEquals(false, Kelvin.convertKelvinToFahrenheit("0", "-459.6"));
 	}
 	
 	@Test
@@ -178,12 +178,12 @@ public class JUnitTestingClass {
 	
 	@Test
 	public void testSuccessConvertRankineToFahrenheit() {
-		assertEquals(true, Rankine.convertRankineToFahrenheit("0", "-459.6"));
+		assertEquals(true, Rankine.convertRankineToFahrenheit("0", "-459.7"));
 	}
 	
 	@Test
 	public void testFailureConvertRankineToFahrenheit() {
-		assertEquals(false, Rankine.convertRankineToFahrenheit("0", "-459.7"));
+		assertEquals(false, Rankine.convertRankineToFahrenheit("0", "-459.6"));
 	}
 	
 	@Test
@@ -198,12 +198,12 @@ public class JUnitTestingClass {
 	
 	@Test
 	public void testSuccessConvertRankineToKelvin() {
-		assertEquals(true, Rankine.convertRankineToKelvin("1", "0.5"));
+		assertEquals(true, Rankine.convertRankineToKelvin("1", "0.6"));
 	}
 	
 	@Test
 	public void testFailureConvertRankineToKelvin() {
-		assertEquals(false, Rankine.convertRankineToKelvin("1", "0.6"));
+		assertEquals(false, Rankine.convertRankineToKelvin("1", "0.5"));
 	}
 	
 	
@@ -263,12 +263,12 @@ public class JUnitTestingClass {
 	
 	@Test
 	public void testSuccessConvertLitersToGallons() {
-		assertEquals(true, Liters.convertLitersToGallons("1", "0.2"));
+		assertEquals(true, Liters.convertLitersToGallons("1", "0.3"));
 	}
 	
 	@Test
 	public void testFailureConvertLitersToGallons() {
-		assertEquals(false, Liters.convertLitersToGallons("1", "0.3"));
+		assertEquals(false, Liters.convertLitersToGallons("1", "0.2"));
 	}
 	
 	//Tablespoons
@@ -305,13 +305,13 @@ public class JUnitTestingClass {
 	
 	@Test
 	public void testSuccessConvertTablespoonsToCups() {
-		assertEquals(true, Tablespoons.convertTablespoonsToCups("1", "0"));
+		assertEquals(true, Tablespoons.convertTablespoonsToCups("1", "0.1"));
 		assertEquals(true, Tablespoons.convertTablespoonsToCups("2", "0.1"));
 	}
 	
 	@Test
 	public void testFailureConvertTablespoonsToCups() {
-		assertEquals(false, Tablespoons.convertTablespoonsToCups("1", "0.1"));
+		assertEquals(false, Tablespoons.convertTablespoonsToCups("1", "0.2"));
 	}
 	
 	@Test
@@ -328,7 +328,7 @@ public class JUnitTestingClass {
 	@Test
 	public void testSuccessConvertTablespoonsToGallons() {
 		assertEquals(true, Tablespoons.convertTablespoonsToGallons("1", "0"));
-		assertEquals(true, Tablespoons.convertTablespoonsToGallons("100", "0.3"));
+		assertEquals(true, Tablespoons.convertTablespoonsToGallons("100", "0.4"));
 	}
 	
 	@Test
@@ -350,7 +350,7 @@ public class JUnitTestingClass {
 	@Test
 	public void testSuccessConvertCubicInchesToLiters() {
 		assertEquals(true, CubicInches.convertCubicInchesToLiters("1", "0"));
-		assertEquals(true, CubicInches.convertCubicInchesToLiters("10", "0.1"));
+		assertEquals(true, CubicInches.convertCubicInchesToLiters("10", "0.2"));
 	}
 	
 	@Test
@@ -370,7 +370,7 @@ public class JUnitTestingClass {
 	
 	@Test
 	public void testSuccessConvertCubicInchesToCups() {
-		assertEquals(true, CubicInches.convertCubicInchesToCups("1", "0"));
+		assertEquals(true, CubicInches.convertCubicInchesToCups("1", "0.1"));
 		assertEquals(true, CubicInches.convertCubicInchesToCups("2", "0.1"));
 	}
 	
@@ -382,7 +382,7 @@ public class JUnitTestingClass {
 	@Test
 	public void testSuccessConvertCubicInchesToCubicFeet() {
 		assertEquals(true, CubicInches.convertCubicInchesToCubicFeet("1", "0"));
-		assertEquals(true, CubicInches.convertCubicInchesToCubicFeet("1000", "0.5"));
+		assertEquals(true, CubicInches.convertCubicInchesToCubicFeet("1000", "0.6"));
 	}
 	
 	@Test
@@ -455,7 +455,7 @@ public class JUnitTestingClass {
 	
 	@Test
 	public void testSuccessConvertCupsToGallons() {
-		assertEquals(true, Cups.convertCupsToGallons("1", "0"));
+		assertEquals(true, Cups.convertCupsToGallons("1", "0.1"));
 		assertEquals(true, Cups.convertCupsToGallons("10", "0.6"));
 	}
 	
@@ -517,7 +517,7 @@ public class JUnitTestingClass {
 	
 	@Test
 	public void testSuccessConvertCubicFeetToGallons() {
-		assertEquals(true, CubicFeet.convertCubicFeetToGallons("1", "7.4"));
+		assertEquals(true, CubicFeet.convertCubicFeetToGallons("1", "7.5"));
 	}
 	
 	@Test
@@ -538,7 +538,7 @@ public class JUnitTestingClass {
 	
 	@Test
 	public void testSuccessConvertGallonsToLiters() {
-		assertEquals(true, Gallons.convertGallonsToLiters("1", "3.7"));
+		assertEquals(true, Gallons.convertGallonsToLiters("1", "3.8"));
 	}
 	
 	@Test

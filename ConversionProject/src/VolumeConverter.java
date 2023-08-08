@@ -183,14 +183,4 @@ public class VolumeConverter {
 		return evaluation;
 	}
 	
-	public static boolean verifyInputs(String InputTempNumText, String StudentTempResponseText) {
-		boolean VertifyInputTempNumText = Pattern.matches("^-?\\d+(\\.\\d{1,1})?$", InputTempNumText);
-		boolean VerifyStudentTempResponseText = Pattern.matches("^-?\\d+(\\.\\d{1,1})?$", StudentTempResponseText);
-		if (VertifyInputTempNumText == true && VerifyStudentTempResponseText == true) {
-			return true;
-		} else {
-			return false;
-		}
-	}
-	
 }

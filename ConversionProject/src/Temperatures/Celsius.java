@@ -1,6 +1,10 @@
 package Temperatures;
 import javax.swing.*;
+
+import Verification.ConversionVerifier;
+
 import java.awt.event.*;
+import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.text.DecimalFormat;
 import java.util.regex.Pattern;
@@ -10,65 +14,29 @@ public class Celsius {
 	
 	//Celsius conversions
 	public static boolean convertCelsiusToCelsius (String InputTempNumText, String StudentTempResponseText) {
-		DecimalFormat df = new DecimalFormat("#.0");
-		df.setRoundingMode(RoundingMode.DOWN);
-		double studentTempResponse = Double.parseDouble(StudentTempResponseText);
-		double celsius = Double.parseDouble(InputTempNumText);
+		BigDecimal celsius = new BigDecimal(Double.parseDouble(InputTempNumText));
 		
-		if (String.valueOf(df.format(celsius)).equals(String.valueOf(df.format(studentTempResponse)))) {
-			System.out.println("Correct Calculation");
-			return true;
-		} else {
-			System.out.println("Incorrect Calculation");
-			return false;
-		}
+		return ConversionVerifier.verifyEvaluation(celsius, new BigDecimal(StudentTempResponseText));
 	}
 	
 	public static boolean convertCelsiusToFahrenheit (String InputTempNumText, String StudentTempResponseText) {
-		DecimalFormat df = new DecimalFormat("#.0");
-		df.setRoundingMode(RoundingMode.DOWN);
-		double studentTempResponse = Double.parseDouble(StudentTempResponseText);
 		double celsius = Double.parseDouble(InputTempNumText);
-		double fahrenheit = (celsius * 9/5) + 32;
+		BigDecimal fahrenheit = new BigDecimal((celsius * 9/5) + 32);
 		
-		if (String.valueOf(df.format(fahrenheit)).equals(String.valueOf(df.format(studentTempResponse)))) {
-			System.out.println("Correct Calculation");
-			return true;
-		} else {
-			System.out.println("Incorrect Calculation");
-			return false;
-		}
+		return ConversionVerifier.verifyEvaluation(fahrenheit, new BigDecimal(StudentTempResponseText));
 	}
 	
 	public static boolean convertCelsiusToKelvin (String InputTempNumText, String StudentTempResponseText) {
-		DecimalFormat df = new DecimalFormat("#.0");
-		df.setRoundingMode(RoundingMode.DOWN);
-		double studentTempResponse = Double.parseDouble(StudentTempResponseText);
 		double celsius = Double.parseDouble(InputTempNumText);
-		double kelvin = celsius + 273.15;
+		BigDecimal kelvin = new BigDecimal(celsius + 273.15);
 		
-		if (String.valueOf(df.format(kelvin)).equals(String.valueOf(df.format(studentTempResponse)))) {
-			System.out.println("Correct Calculation");
-			return true;
-		} else {
-			System.out.println("Incorrect Calculation");
-			return false;
-		}
+		return ConversionVerifier.verifyEvaluation(kelvin, new BigDecimal(StudentTempResponseText));
 	}
 	
 	public static boolean convertCelsiusToRankine (String InputTempNumText, String StudentTempResponseText) {
-		DecimalFormat df = new DecimalFormat("#.0");
-		df.setRoundingMode(RoundingMode.DOWN);
-		double studentTempResponse = Double.parseDouble(StudentTempResponseText);
 		double celsius = Double.parseDouble(InputTempNumText);
-		double rankine = celsius * 9/5 + 491.67;
+		BigDecimal rankine = new BigDecimal(celsius * 9/5 + 491.67);
 		
-		if (String.valueOf(df.format(rankine)).equals(String.valueOf(df.format(studentTempResponse)))) {
-			System.out.println("Correct Calculation");
-			return true;
-		} else {
-			System.out.println("Incorrect Calculation");
-			return false;
-		}
+		return ConversionVerifier.verifyEvaluation(rankine, new BigDecimal(StudentTempResponseText));
 	}
 }

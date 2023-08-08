@@ -114,29 +114,19 @@ public class TempConverter {
 		return evaluation;
 	}
 	
-	public static boolean verifyInputs(String InputTempNumText, String StudentTempResponseText) {
-		boolean VertifyInputTempNumText = Pattern.matches("^-?\\d+(\\.\\d{1,1})?$", InputTempNumText);
-		boolean VerifyStudentTempResponseText = Pattern.matches("^-?\\d+(\\.\\d{1,1})?$", StudentTempResponseText);
-		if (VertifyInputTempNumText == true && VerifyStudentTempResponseText == true) {
-			return true;
-		} else {
-			return false;
-		}
-	}
-	
 	public static boolean isPastAbsoluteZero(String InputTempNumText, String StudentTempResponseText, 
 											TemperatureEnum InputTempUnitDropdown, TemperatureEnum TargetTempUnitDropdown) {
 		DecimalFormat df = new DecimalFormat("#.0");
-		df.setRoundingMode(RoundingMode.DOWN);
+		df.setRoundingMode(RoundingMode.HALF_UP);
 		boolean evaluation = false;
 		
 		//Determine Past Absolute Zero
 		switch (InputTempUnitDropdown) {
-	        case FAHRENHEIT : if (Double.parseDouble(df.format(Double.parseDouble(InputTempNumText))) < -459.67) {
+	        case FAHRENHEIT : if (Double.parseDouble(df.format(Double.parseDouble(InputTempNumText))) < -459.7) {
 						        	evaluation = true;
 						        }
 	                 break;
-	        case CELSIUS : if (Double.parseDouble(df.format(Double.parseDouble(InputTempNumText))) < -273.15) {
+	        case CELSIUS : if (Double.parseDouble(df.format(Double.parseDouble(InputTempNumText))) < -273.2) {
 					        	evaluation = true;
 					        }
 	                 break;
@@ -151,11 +141,11 @@ public class TempConverter {
 	        default: return false;
 		}
 		switch (TargetTempUnitDropdown) {
-	        case FAHRENHEIT : if (Double.parseDouble(df.format(Double.parseDouble(StudentTempResponseText))) < -459.67) {
+	        case FAHRENHEIT : if (Double.parseDouble(df.format(Double.parseDouble(StudentTempResponseText))) < -459.7) {
 						        	evaluation = true;
 						        }
 	                 break;
-	        case CELSIUS : if (Double.parseDouble(df.format(Double.parseDouble(StudentTempResponseText))) < -273.15) {
+	        case CELSIUS : if (Double.parseDouble(df.format(Double.parseDouble(StudentTempResponseText))) < -273.2) {
 					        	evaluation = true;
 					        }
 	                 break;
