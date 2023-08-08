@@ -1,5 +1,9 @@
 import static org.junit.Assert.*;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+import java.util.regex.Pattern;
+
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
@@ -11,6 +15,7 @@ import Temperatures.Celsius;
 import Temperatures.Fahrenheit;
 import Temperatures.Kelvin;
 import Temperatures.Rankine;
+import Verification.ConversionVerifier;
 import Volumes.CubicFeet;
 import Volumes.CubicInches;
 import Volumes.Cups;
@@ -24,22 +29,53 @@ public class JUnitTestingClass {
 	@Test
 	public void testSuccessEvaluateTempConversion() {
 		assertEquals(true, TempConverter.evaluateTempConversion("32", "0", TemperatureEnum.FAHRENHEIT, TemperatureEnum.CELSIUS));
+		assertEquals(true, TempConverter.evaluateTempConversion("10.45", "510.48", TemperatureEnum.CELSIUS, TemperatureEnum.RANKINE));
+		assertEquals(true, TempConverter.evaluateTempConversion("1", "0.55", TemperatureEnum.RANKINE, TemperatureEnum.KELVIN));
+		assertEquals(true, TempConverter.evaluateTempConversion("317.46", "111.76762", TemperatureEnum.KELVIN, TemperatureEnum.FAHRENHEIT));
 	}
 	
 	@Test
 	public void testFailureEvaluateTempConversion() {
 		assertEquals(false, TempConverter.evaluateTempConversion("32", "1", TemperatureEnum.FAHRENHEIT, TemperatureEnum.CELSIUS));
+		assertEquals(false, TempConverter.evaluateTempConversion("10.45", "510.44", TemperatureEnum.CELSIUS, TemperatureEnum.RANKINE));
+		assertEquals(false, TempConverter.evaluateTempConversion("1", "0.54", TemperatureEnum.RANKINE, TemperatureEnum.KELVIN));
+		assertEquals(false, TempConverter.evaluateTempConversion("317.46", "111.7443", TemperatureEnum.KELVIN, TemperatureEnum.FAHRENHEIT));
 	}
 	
 	//Test VolumeConverter
 	@Test
 	public void testSuccessEvaluateVolumeConversion() {
 		assertEquals(true, VolumeConverter.evaluateVolConversion("1", "67.6", VolumeEnum.LITERS, VolumeEnum.TABLESPOONS));
+		assertEquals(true, VolumeConverter.evaluateVolConversion("1.5", "42.4753", VolumeEnum.CUBIC_FEET, VolumeEnum.LITERS));
+		assertEquals(true, VolumeConverter.evaluateVolConversion("10.5", "0.7272727", VolumeEnum.CUBIC_INCHES, VolumeEnum.CUPS));
+		assertEquals(true, VolumeConverter.evaluateVolConversion("139", "1.16135", VolumeEnum.CUPS, VolumeEnum.CUBIC_FEET));
+		assertEquals(true, VolumeConverter.evaluateVolConversion("0.5", "115.5", VolumeEnum.GALLONS, VolumeEnum.CUBIC_INCHES));
+		assertEquals(true, VolumeConverter.evaluateVolConversion("1000", "3.90625", VolumeEnum.TABLESPOONS, VolumeEnum.GALLONS));
 	}
 	
 	@Test
 	public void testFailureEvaluateVolumeConversion() {
-		assertEquals(false, VolumeConverter.evaluateVolConversion("1", "67.7", VolumeEnum.LITERS, VolumeEnum.TABLESPOONS));
+		assertEquals(false, VolumeConverter.evaluateVolConversion("1", "67.4", VolumeEnum.LITERS, VolumeEnum.TABLESPOONS));
+		assertEquals(false, VolumeConverter.evaluateVolConversion("1.5", "42.4353", VolumeEnum.CUBIC_FEET, VolumeEnum.LITERS));
+		assertEquals(false, VolumeConverter.evaluateVolConversion("10.5", "0.4272727", VolumeEnum.CUBIC_INCHES, VolumeEnum.CUPS));
+		assertEquals(false, VolumeConverter.evaluateVolConversion("139", "1.14135", VolumeEnum.CUPS, VolumeEnum.CUBIC_FEET));
+		assertEquals(false, VolumeConverter.evaluateVolConversion("0.5", "115.4", VolumeEnum.GALLONS, VolumeEnum.CUBIC_INCHES));
+		assertEquals(false, VolumeConverter.evaluateVolConversion("1000", "3.40625", VolumeEnum.TABLESPOONS, VolumeEnum.GALLONS));
+	}
+	
+	@Test
+	public void testSuccessVerifyInputs() {
+		assertEquals(true, ConversionVerifier.verifyInputs("10.564","111.3456"));
+		assertEquals(true, ConversionVerifier.verifyInputs("-10.564","-111.3456"));
+	}
+	
+	@Test
+	public void testFailureVerifyInputs() {
+		assertEquals(false, ConversionVerifier.verifyInputs(".","111.3456"));
+		assertEquals(false, ConversionVerifier.verifyInputs("4","0."));
+		assertEquals(false, ConversionVerifier.verifyInputs("1","dog"));
+		assertEquals(false, ConversionVerifier.verifyInputs("dog","111.3456"));
+		assertEquals(false, ConversionVerifier.verifyInputs(".0","dog"));
 	}
 	
 	//Test fahrenheit

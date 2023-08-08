@@ -14,30 +14,30 @@ import java.awt.*;
 public class Fahrenheit {
 	
 	//Fahrenheit conversions
-	public static boolean convertFahrenheitToFahrenheit (String InputTempNumText, String StudentTempResponseText) {
-		BigDecimal fahrenheit = new BigDecimal(InputTempNumText);
+	public static boolean convertFahrenheitToFahrenheit (String InputNumberText, String StudentResponseText) {
+		BigDecimal fahrenheit = new BigDecimal(InputNumberText);
 		
-		return ConversionVerifier.verifyEvaluation(fahrenheit, new BigDecimal(StudentTempResponseText));
+		return ConversionVerifier.verifyEvaluation(fahrenheit, new BigDecimal(StudentResponseText));
 	}
 	
-	public static boolean convertFahrenheitToCelsius (String InputTempNumText, String StudentTempResponseText) {
-		double fahrenheit = Double.parseDouble(InputTempNumText);
+	public static boolean convertFahrenheitToCelsius (String InputNumberText, String StudentResponseText) {
+		double fahrenheit = Double.parseDouble(InputNumberText);
 		BigDecimal celsius = new BigDecimal((fahrenheit - 32) * 5 / 9);
 		
-		return ConversionVerifier.verifyEvaluation(celsius, new BigDecimal(StudentTempResponseText));
+		return ConversionVerifier.verifyEvaluation(celsius, new BigDecimal(StudentResponseText));
 	}
 	
-	public static boolean convertFahrenheitToKelvin (String InputTempNumText, String StudentTempResponseText) {
-		double fahrenheit = Double.parseDouble(InputTempNumText);
+	public static boolean convertFahrenheitToKelvin (String InputNumberText, String StudentResponseText) {
+		double fahrenheit = Double.parseDouble(InputNumberText);
 		BigDecimal kelvin = new BigDecimal(273.15 + ((fahrenheit - 32.0) * (5.0/9.0)));
 		
-		return ConversionVerifier.verifyEvaluation(kelvin, new BigDecimal(StudentTempResponseText));
+		return ConversionVerifier.verifyEvaluation(kelvin, new BigDecimal(StudentResponseText));
 	}
 	
-	public static boolean convertFahrenheitToRankine (String InputTempNumText, String StudentTempResponseText) {
-		double fahrenheit = Double.parseDouble(InputTempNumText);
+	public static boolean convertFahrenheitToRankine (String InputNumberText, String StudentResponseText) {
+		double fahrenheit = Double.parseDouble(InputNumberText);
 		BigDecimal rankine = new BigDecimal(fahrenheit + 459.67);
 		
-		return ConversionVerifier.verifyEvaluation(rankine, new BigDecimal(StudentTempResponseText));
+		return ConversionVerifier.verifyEvaluation(rankine, new BigDecimal(StudentResponseText));
 	}
 }

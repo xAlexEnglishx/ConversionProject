@@ -13,24 +13,20 @@ import java.awt.*;
 
 public class TempConverter {
 	
-	public static boolean evaluateTempConversion(String InputTempNumText, String StudentTempResponseText, 
-										TemperatureEnum InputTempUnitDropdown, TemperatureEnum TargetTempUnitDropdown) {
+	public static boolean evaluateTempConversion(String InputNumberText, String StudentResponseText, 
+										TemperatureEnum InputUnitDropdown, TemperatureEnum TargetUnitDropdown) {
 		
 		boolean evaluation = false;
 		
 		//Determine Input Temperature Unit
-		switch (InputTempUnitDropdown) {
-	        case FAHRENHEIT : evaluation = convertFromFahrenheit(InputTempNumText, StudentTempResponseText, 
-											TargetTempUnitDropdown);
+		switch (InputUnitDropdown) {
+	        case FAHRENHEIT : evaluation = convertFromFahrenheit(InputNumberText, StudentResponseText, TargetUnitDropdown);
 	                 break;
-	        case CELSIUS : evaluation = convertFromCelsius(InputTempNumText, StudentTempResponseText, 
-											TargetTempUnitDropdown);
+	        case CELSIUS : evaluation = convertFromCelsius(InputNumberText, StudentResponseText, TargetUnitDropdown);
 	                 break;
-	        case KELVIN : evaluation = convertFromKelvin(InputTempNumText, StudentTempResponseText, 
-											TargetTempUnitDropdown);
+	        case KELVIN : evaluation = convertFromKelvin(InputNumberText, StudentResponseText, TargetUnitDropdown);
 	                 break;
-	        case RANKINE : evaluation = convertFromRankine(InputTempNumText, StudentTempResponseText, 
-											TargetTempUnitDropdown);
+	        case RANKINE : evaluation = convertFromRankine(InputNumberText, StudentResponseText, TargetUnitDropdown);
 	                 break;
 	        default: return false;
 		}
@@ -38,122 +34,122 @@ public class TempConverter {
 		return evaluation;
 	}
 	
-	private static boolean convertFromFahrenheit (String InputTempNumText, String StudentTempResponseText, 
-													TemperatureEnum TargetTempUnitDropdown) {
+	private static boolean convertFromFahrenheit (String InputNumberText, String StudentResponseText, 
+													TemperatureEnum TargetUnitDropdown) {
 		boolean evaluation = false;
 		
 		//Determine Target Temperature Unit
-		switch (TargetTempUnitDropdown) {
-	        case FAHRENHEIT : evaluation = Fahrenheit.convertFahrenheitToFahrenheit(InputTempNumText, StudentTempResponseText);
+		switch (TargetUnitDropdown) {
+	        case FAHRENHEIT : evaluation = Fahrenheit.convertFahrenheitToFahrenheit(InputNumberText, StudentResponseText);
 	                 break;
-	        case CELSIUS : evaluation = Fahrenheit.convertFahrenheitToCelsius(InputTempNumText, StudentTempResponseText);
+	        case CELSIUS : evaluation = Fahrenheit.convertFahrenheitToCelsius(InputNumberText, StudentResponseText);
 	                 break;
-	        case KELVIN : evaluation = Fahrenheit.convertFahrenheitToKelvin(InputTempNumText, StudentTempResponseText);
+	        case KELVIN : evaluation = Fahrenheit.convertFahrenheitToKelvin(InputNumberText, StudentResponseText);
 	                 break;
-	        case RANKINE : evaluation = Fahrenheit.convertFahrenheitToRankine(InputTempNumText, StudentTempResponseText);
+	        case RANKINE : evaluation = Fahrenheit.convertFahrenheitToRankine(InputNumberText, StudentResponseText);
 	                 break;
 	        default: return false;
 		}
 		return evaluation;
 	}
 	
-	private static boolean convertFromCelsius (String InputTempNumText, String StudentTempResponseText, 
-												TemperatureEnum TargetTempUnitDropdown) {
+	private static boolean convertFromCelsius (String InputNumberText, String StudentResponseText, 
+												TemperatureEnum TargetUnitDropdown) {
 		boolean evaluation = false;
 		
 		//Determine Target Temperature Unit
-		switch (TargetTempUnitDropdown) {
-	        case FAHRENHEIT : evaluation = Celsius.convertCelsiusToFahrenheit(InputTempNumText, StudentTempResponseText);
+		switch (TargetUnitDropdown) {
+	        case FAHRENHEIT : evaluation = Celsius.convertCelsiusToFahrenheit(InputNumberText, StudentResponseText);
 	                 break;
-	        case CELSIUS : evaluation = Celsius.convertCelsiusToCelsius(InputTempNumText, StudentTempResponseText);
+	        case CELSIUS : evaluation = Celsius.convertCelsiusToCelsius(InputNumberText, StudentResponseText);
 	                 break;
-	        case KELVIN : evaluation = Celsius.convertCelsiusToKelvin(InputTempNumText, StudentTempResponseText);
+	        case KELVIN : evaluation = Celsius.convertCelsiusToKelvin(InputNumberText, StudentResponseText);
 	                 break;
-	        case RANKINE : evaluation = Celsius.convertCelsiusToRankine(InputTempNumText, StudentTempResponseText);
+	        case RANKINE : evaluation = Celsius.convertCelsiusToRankine(InputNumberText, StudentResponseText);
 	                 break;
 	        default: return false;
 		}
 		return evaluation;
 	}
 	
-	private static boolean convertFromKelvin (String InputTempNumText, String StudentTempResponseText, 
-												TemperatureEnum TargetTempUnitDropdown) {
+	private static boolean convertFromKelvin (String InputNumberText, String StudentResponseText, 
+												TemperatureEnum TargetUnitDropdown) {
 		boolean evaluation = false;
 		
 		//Determine Target Temperature Unit
-		switch (TargetTempUnitDropdown) {
-	        case FAHRENHEIT : evaluation = Kelvin.convertKelvinToFahrenheit(InputTempNumText, StudentTempResponseText);
+		switch (TargetUnitDropdown) {
+	        case FAHRENHEIT : evaluation = Kelvin.convertKelvinToFahrenheit(InputNumberText, StudentResponseText);
 	                 break;
-	        case CELSIUS : evaluation = Kelvin.convertKelvinToCelsius(InputTempNumText, StudentTempResponseText);
+	        case CELSIUS : evaluation = Kelvin.convertKelvinToCelsius(InputNumberText, StudentResponseText);
 	                 break;
-	        case KELVIN : evaluation = Kelvin.convertKelvinToKelvin(InputTempNumText, StudentTempResponseText);
+	        case KELVIN : evaluation = Kelvin.convertKelvinToKelvin(InputNumberText, StudentResponseText);
 	                 break;
-	        case RANKINE : evaluation = Kelvin.convertKelvinToRankine(InputTempNumText, StudentTempResponseText);
+	        case RANKINE : evaluation = Kelvin.convertKelvinToRankine(InputNumberText, StudentResponseText);
 	                 break;
 	        default: return false;
 		}
 		return evaluation;
 	}
 	
-	private static boolean convertFromRankine (String InputTempNumText, String StudentTempResponseText, 
-												TemperatureEnum TargetTempUnitDropdown) {
+	private static boolean convertFromRankine (String InputNumberText, String StudentResponseText, 
+												TemperatureEnum TargetUnitDropdown) {
 		boolean evaluation = false;
 		
 		//Determine Target Temperature Unit
-		switch (TargetTempUnitDropdown) {
-	        case FAHRENHEIT : evaluation = Rankine.convertRankineToFahrenheit(InputTempNumText, StudentTempResponseText);
+		switch (TargetUnitDropdown) {
+	        case FAHRENHEIT : evaluation = Rankine.convertRankineToFahrenheit(InputNumberText, StudentResponseText);
 	                 break;
-	        case CELSIUS : evaluation = Rankine.convertRankineToCelsius(InputTempNumText, StudentTempResponseText);
+	        case CELSIUS : evaluation = Rankine.convertRankineToCelsius(InputNumberText, StudentResponseText);
 	                 break;
-	        case KELVIN : evaluation = Rankine.convertRankineToKelvin(InputTempNumText, StudentTempResponseText);
+	        case KELVIN : evaluation = Rankine.convertRankineToKelvin(InputNumberText, StudentResponseText);
 	                 break;
-	        case RANKINE : evaluation = Rankine.convertRankineToRankine(InputTempNumText, StudentTempResponseText);
+	        case RANKINE : evaluation = Rankine.convertRankineToRankine(InputNumberText, StudentResponseText);
 	                 break;
 	        default: return false;
 		}
 		return evaluation;
 	}
 	
-	public static boolean isPastAbsoluteZero(String InputTempNumText, String StudentTempResponseText, 
-											TemperatureEnum InputTempUnitDropdown, TemperatureEnum TargetTempUnitDropdown) {
+	public static boolean isPastAbsoluteZero(String InputNumberText, String StudentResponseText, 
+											TemperatureEnum InputUnitDropdown, TemperatureEnum TargetUnitDropdown) {
 		DecimalFormat df = new DecimalFormat("#.0");
 		df.setRoundingMode(RoundingMode.HALF_UP);
 		boolean evaluation = false;
 		
 		//Determine Past Absolute Zero
-		switch (InputTempUnitDropdown) {
-	        case FAHRENHEIT : if (Double.parseDouble(df.format(Double.parseDouble(InputTempNumText))) < -459.7) {
+		switch (InputUnitDropdown) {
+	        case FAHRENHEIT : if (Double.parseDouble(df.format(Double.parseDouble(InputNumberText))) < -459.7) {
 						        	evaluation = true;
 						        }
 	                 break;
-	        case CELSIUS : if (Double.parseDouble(df.format(Double.parseDouble(InputTempNumText))) < -273.2) {
+	        case CELSIUS : if (Double.parseDouble(df.format(Double.parseDouble(InputNumberText))) < -273.2) {
 					        	evaluation = true;
 					        }
 	                 break;
-	        case KELVIN : if (Double.parseDouble(df.format(Double.parseDouble(InputTempNumText))) < -0) {
+	        case KELVIN : if (Double.parseDouble(df.format(Double.parseDouble(InputNumberText))) < -0) {
 					        	evaluation = true;
 					        }
 	                 break;
-	        case RANKINE : if (Double.parseDouble(df.format(Double.parseDouble(InputTempNumText))) < -0) {
+	        case RANKINE : if (Double.parseDouble(df.format(Double.parseDouble(InputNumberText))) < -0) {
 					        	evaluation = true;
 					        }
 	                 break;
 	        default: return false;
 		}
-		switch (TargetTempUnitDropdown) {
-	        case FAHRENHEIT : if (Double.parseDouble(df.format(Double.parseDouble(StudentTempResponseText))) < -459.7) {
+		switch (TargetUnitDropdown) {
+	        case FAHRENHEIT : if (Double.parseDouble(df.format(Double.parseDouble(StudentResponseText))) < -459.7) {
 						        	evaluation = true;
 						        }
 	                 break;
-	        case CELSIUS : if (Double.parseDouble(df.format(Double.parseDouble(StudentTempResponseText))) < -273.2) {
+	        case CELSIUS : if (Double.parseDouble(df.format(Double.parseDouble(StudentResponseText))) < -273.2) {
 					        	evaluation = true;
 					        }
 	                 break;
-	        case KELVIN : if (Double.parseDouble(df.format(Double.parseDouble(StudentTempResponseText))) < -0) {
+	        case KELVIN : if (Double.parseDouble(df.format(Double.parseDouble(StudentResponseText))) < -0) {
 					        	evaluation = true;
 					        }
 	                 break;
-	        case RANKINE : if (Double.parseDouble(df.format(Double.parseDouble(StudentTempResponseText))) < -0) {
+	        case RANKINE : if (Double.parseDouble(df.format(Double.parseDouble(StudentResponseText))) < -0) {
 					        	evaluation = true;
 					        }
 	                 break;

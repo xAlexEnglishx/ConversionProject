@@ -73,31 +73,7 @@ public class Main {
 			{
 				public void actionPerformed(ActionEvent e)
 				{
-					//Validate inputs
-					if (ConversionVerifier.verifyInputs(InputTempNumText.getText(), StudentTempResponseText.getText())) {
-						if (TempConverter.isPastAbsoluteZero(InputTempNumText.getText(), StudentTempResponseText.getText(),
-								(TemperatureEnum)InputTempUnitDropdown.getSelectedItem(), 
-								(TemperatureEnum)TargetTempUnitDropdown.getSelectedItem())) {
-							System.out.println("Below Absolute Zero");
-							TempOutput.setText("Output: invalid, input below Absolute Zero");
-						} else {
-							//Evaluate conversion
-							boolean conversionEvaluation = TempConverter.evaluateTempConversion(
-									InputTempNumText.getText(), 
-									StudentTempResponseText.getText(),
-									(TemperatureEnum)InputTempUnitDropdown.getSelectedItem(), 
-									(TemperatureEnum)TargetTempUnitDropdown.getSelectedItem());
-							
-							if (conversionEvaluation == true) {
-								TempOutput.setText("Output: correct");
-							} else {
-								TempOutput.setText("Output: incorrect");
-							}
-						}
-					} else {
-						System.out.println("Invalid entry");
-						TempOutput.setText("Output: invalid");
-					}
+					evaluateTemperatureInputs();
 				}
 			}
 		);
@@ -134,24 +110,7 @@ public class Main {
 			{
 				public void actionPerformed(ActionEvent e)
 				{
-					//Validate inputs
-					if (ConversionVerifier.verifyInputs(InputVolNumText.getText(), StudentVolResponseText.getText())) {
-						//Evaluate conversion
-						boolean conversionEvaluation = VolumeConverter.evaluateVolConversion(
-								InputVolNumText.getText(), 
-								StudentVolResponseText.getText(),
-								(VolumeEnum)InputVolUnitDropdown.getSelectedItem(), 
-								(VolumeEnum)TargetVolUnitDropdown.getSelectedItem());
-						
-						if (conversionEvaluation == true) {
-							VolOutput.setText("Output: correct");
-						} else {
-							VolOutput.setText("Output: incorrect");
-						}
-					} else {
-						System.out.println("Invalid entry");
-						VolOutput.setText("Output: invalid");
-					}
+					evaluateVolumeInputs();
 				}
 			}
 		);
@@ -248,4 +207,49 @@ public class Main {
 		
 	}
 
+	public static void evaluateTemperatureInputs() {
+		if (ConversionVerifier.verifyInputs(InputTempNumText.getText(), StudentTempResponseText.getText())) {
+			if (TempConverter.isPastAbsoluteZero(InputTempNumText.getText(), StudentTempResponseText.getText(),
+				(TemperatureEnum)InputTempUnitDropdown.getSelectedItem(), 
+				(TemperatureEnum)TargetTempUnitDropdown.getSelectedItem())) {
+					System.out.println("Below Absolute Zero");
+					TempOutput.setText("Output: invalid, input below Absolute Zero");
+			} else {
+				//Evaluate conversion
+				if (TempConverter.evaluateTempConversion(
+					InputTempNumText.getText(), 
+					StudentTempResponseText.getText(),
+					(TemperatureEnum)InputTempUnitDropdown.getSelectedItem(), 
+					(TemperatureEnum)TargetTempUnitDropdown.getSelectedItem())) {
+						TempOutput.setText("Output: correct");
+				} else {
+						TempOutput.setText("Output: incorrect");
+				}
+			}
+		} else {
+			System.out.println("Invalid entry");
+			TempOutput.setText("Output: invalid");
+		}
+	}
+	
+	public static void evaluateVolumeInputs() {
+		if (ConversionVerifier.verifyInputs(InputVolNumText.getText(), StudentVolResponseText.getText())) {
+			//Evaluate conversion
+			if (VolumeConverter.evaluateVolConversion(
+				InputVolNumText.getText(), 
+				StudentVolResponseText.getText(),
+				(VolumeEnum)InputVolUnitDropdown.getSelectedItem(), 
+				(VolumeEnum)TargetVolUnitDropdown.getSelectedItem())) {
+					VolOutput.setText("Output: correct");
+			} else {
+					VolOutput.setText("Output: incorrect");
+			}
+		} else {
+			System.out.println("Invalid entry");
+			VolOutput.setText("Output: invalid");
+		}
+	}
+	
 }
+
+

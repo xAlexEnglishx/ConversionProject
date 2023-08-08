@@ -13,45 +13,45 @@ import java.awt.*;
 public class Gallons {
 	
 	//Gallons conversions
-	public static boolean convertGallonsToGallons (String InputTempNumText, String StudentTempResponseText) {
-		BigDecimal gallons = new BigDecimal(InputTempNumText);
+	public static boolean convertGallonsToGallons (String InputNumberText, String StudentResponseText) {
+		BigDecimal gallons = new BigDecimal(InputNumberText);
 		
-		return ConversionVerifier.verifyEvaluation(gallons, new BigDecimal(StudentTempResponseText));
+		return ConversionVerifier.verifyEvaluation(gallons, new BigDecimal(StudentResponseText));
 	}
 	
-	public static boolean convertGallonsToLiters (String InputTempNumText, String StudentTempResponseText) {
-		double gallons = Double.parseDouble(InputTempNumText);
+	public static boolean convertGallonsToLiters (String InputNumberText, String StudentResponseText) {
+		double gallons = Double.parseDouble(InputNumberText);
 		BigDecimal liters = new BigDecimal(gallons * 3.785);
 		
-		return ConversionVerifier.verifyEvaluation(liters, new BigDecimal(StudentTempResponseText));
+		return ConversionVerifier.verifyEvaluation(liters, new BigDecimal(StudentResponseText));
 	}
 	
-	public static boolean convertGallonsToTablespoons (String InputTempNumText, String StudentTempResponseText) {
-		double gallons = Double.parseDouble(InputTempNumText);
+	public static boolean convertGallonsToTablespoons (String InputNumberText, String StudentResponseText) {
+		double gallons = Double.parseDouble(InputNumberText);
 		BigDecimal tablespoons = new BigDecimal(gallons * 256);
 		
-		return ConversionVerifier.verifyEvaluation(tablespoons, new BigDecimal(StudentTempResponseText));
+		return ConversionVerifier.verifyEvaluation(tablespoons, new BigDecimal(StudentResponseText));
 	}
 	
-	public static boolean convertGallonsToCubicInches (String InputTempNumText, String StudentTempResponseText) {
-		double gallons = Double.parseDouble(InputTempNumText);
+	public static boolean convertGallonsToCubicInches (String InputNumberText, String StudentResponseText) {
+		double gallons = Double.parseDouble(InputNumberText);
 		BigDecimal cubicInches = new BigDecimal(gallons * 231);
 		
-		return ConversionVerifier.verifyEvaluation(cubicInches, new BigDecimal(StudentTempResponseText));
+		return ConversionVerifier.verifyEvaluation(cubicInches, new BigDecimal(StudentResponseText));
 	}
 	
-	public static boolean convertGallonsToCubicFeet (String InputTempNumText, String StudentTempResponseText) {
-		double gallons = Double.parseDouble(InputTempNumText);
+	public static boolean convertGallonsToCubicFeet (String InputNumberText, String StudentResponseText) {
+		double gallons = Double.parseDouble(InputNumberText);
 		BigDecimal cubicFeet = new BigDecimal(gallons / 7.48);
 		
-		return ConversionVerifier.verifyEvaluation(cubicFeet, new BigDecimal(StudentTempResponseText));
+		return ConversionVerifier.verifyEvaluation(cubicFeet, new BigDecimal(StudentResponseText));
 	}
 	
-	public static boolean convertGallonsToCups (String InputTempNumText, String StudentTempResponseText) {
-		double gallons = Double.parseDouble(InputTempNumText);
+	public static boolean convertGallonsToCups (String InputNumberText, String StudentResponseText) {
+		double gallons = Double.parseDouble(InputNumberText);
 		BigDecimal cups = new BigDecimal(gallons * 16);
 		
-		return ConversionVerifier.verifyEvaluation(cups, new BigDecimal(StudentTempResponseText));
+		return ConversionVerifier.verifyEvaluation(cups, new BigDecimal(StudentResponseText));
 	}
 	
 }
